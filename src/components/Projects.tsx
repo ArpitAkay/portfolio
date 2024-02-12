@@ -49,7 +49,7 @@ const Projects = () => {
       description:
         "Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptasperspiciatis laudantium nobis pariatur expedita laboriosam dolores repellendus accusantium similique atque.",
       frontend: "https://github.com/ArpitAkay/tmdb",
-      live: "https://tmdb-weld.vercel.app/",
+      live: "https://akay-tmdb.vercel.app/",
     },
   ];
 

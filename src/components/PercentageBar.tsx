@@ -10,7 +10,6 @@ const PercentageBar = (props: PercentageBarProps) => {
   const clampedPercentage = Math.min(100, Math.max(0, props.percentage));
   const filledWidth = clampedPercentage;
   const emptyWidth = 100 - clampedPercentage;
-  console.log(filledWidth, emptyWidth);
   return (
     <div className="w-full">
       <div>

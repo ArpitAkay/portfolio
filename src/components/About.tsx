@@ -1,37 +1,56 @@
-import { Avatar } from "@mui/material";
+"use client";
+
 import React from "react";
 import avatar from "../images/avatar.png";
-import { yellow } from "@mui/material/colors";
 import PercentageBar from "./PercentageBar";
+import Link from "next/link";
+import Heading from "./Heading";
 
 const About = () => {
   const skills = [
     {
       id: 1,
       name: "Frontend",
-      percent: 65,
+      percent: 55,
     },
     {
       id: 2,
       name: "Backend",
-      percent: 90,
+      percent: 85,
     },
     {
       id: 3,
+      name: "Programming",
+      percent: 80,
+    },
+    {
+      id: 4,
       name: "DevOps",
-      percent: 30,
+      percent: 20,
     },
   ];
 
   const profileInfo = [
-    { id: 1, attribute: "Profile", value: "Software Engineer" },
+    {
+      id: 1,
+      attribute: "Profile",
+      value: "Software Engineer",
+    },
     {
       id: 2,
       attribute: "Domain",
-      value: "Retail, Ecommerce, BFSI & Digital Marketing",
+      value: "Web Development",
     },
-    { id: 3, attribute: "Education", value: "Bachelor of Engineering" },
-    { id: 4, attribute: "Language", value: "English, Hindi" },
+    {
+      id: 3,
+      attribute: "Education",
+      value: "Bachelor of Engineering",
+    },
+    {
+      id: 4,
+      attribute: "Language",
+      value: "English, Hindi",
+    },
     {
       id: 5,
       attribute: "BI Tools",
@@ -45,10 +64,30 @@ const About = () => {
     {
       id: 7,
       attribute: "Interest",
-      value:
-        "FullStack Development, Coding, Cricket, Football and Table Tennis",
+      value: "FullStack Development, Coding, Cricket, Football & Table Tennis",
     },
   ];
+
+  const [projectCount, setProjectCount] = React.useState(1);
+
+  React.useEffect(() => {
+    let timeout: NodeJS.Timeout;
+
+    const increaseProjectCount = () => {
+      timeout = setTimeout(() => {
+        if (projectCount < 10) {
+          setProjectCount((prevCount) => prevCount + 1);
+          increaseProjectCount(); // Call the function recursively
+        }
+      }, 500);
+    };
+
+    increaseProjectCount();
+
+    return () => {
+      clearTimeout(timeout);
+    };
+  }, [projectCount]);
 
   return (
     <div className="w-full sm:w-4/6">
@@ -56,34 +95,51 @@ const About = () => {
         <div className="p-4">
           <div className="grid grid-cols-1 xl:grid-cols-2 xl:gap-2 2xl:grid-cols-3">
             <div className="flex flex-row items-center justify-center 2xl:col-span-1">
-              <Avatar
+              <img
                 alt="arpit kumar"
                 src={avatar.src}
-                sx={{
-                  width: 180,
-                  height: 180,
-                  border: "2px solid white",
-                  backgroundColor: yellow[700],
-                }}
+                className="h-48 w-48 rounded-full border-2 border-s-white bg-yellow-300"
               />
             </div>
             <div className="flex flex-row items-center justify-center p-2 text-gray-400 2xl:col-span-2 2xl:text-2xl">
-              <div>
-                <p className="my-1">{`Name : ${"Arpit Kumar"}`}</p>
-                <p className="my-1">{`Job Role : ${"Backend Developer"}`}</p>
-                <p className="my-1">{`Experience : ${"1 Year 10 Months"}`}</p>
-                <p className="my-1">{`Address : ${"Bengaluru, India"}`}</p>
-              </div>
+              <table className="table-auto">
+                <tbody>
+                  <tr>
+                    <td className="text-lg font-bold text-white">Name:</td>
+                    <td className="text-base text-gray-400">Arpit Kumar</td>
+                  </tr>
+                  <tr>
+                    <td className="text-lg font-bold text-white">Job Role:</td>
+                    <td className="text-base text-gray-400">
+                      Backend Developer
+                    </td>
+                  </tr>
+                  <tr>
+                    <td className="text-lg font-bold text-white">
+                      Experience:
+                    </td>
+                    <td className="text-base text-gray-400">
+                      1 Year 10 Months
+                    </td>
+                  </tr>
+                  <tr>
+                    <td className="text-lg font-bold text-white">Address:</td>
+                    <td className="text-base text-gray-400">
+                      Bengaluru, India
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
             </div>
           </div>
           {/* skills */}
-          <div className="text-gray-400">
+          <div className="mt-8 text-gray-400">
             <div>
               <p className="text-xl">Skills</p>
             </div>
             {skills.map((skill) => {
               return (
-                <div className="mt-4 w-full">
+                <div className="mt-4 w-full p-2" key={skill.id}>
                   <PercentageBar
                     percentage={skill.percent}
                     skill={skill.name}
@@ -95,17 +151,26 @@ const About = () => {
           </div>
         </div>
         <div className="p-4">
+          {/* About Heading */}
           <div>
-            <h1 className="text-5xl">About Me</h1>
+            <Heading
+              title={"About Me"}
+              titleSize={"text-5xl"}
+              subtitle={"About"}
+              subtitleSize={"text-8xl"}
+              top={"-top-2"}
+              left={"left-0"}
+            />
           </div>
-          <div className="mt-8">
+          <div className="mt-10">
             <p className="text-base text-gray-400">
-              With over 5 years of comprehensive experience in the field of data
-              science & analytics, accompanied by a bachelor's degree in
-              engineering. Proficient in data analysis, statistical analysis,
-              hypothesis testing, customer behaviour analysis, & machine
-              learning. Demonstrated success in leading impactful projects and
-              providing effective mentorship.
+              I started my career as internship trainee as DevOps Engineer at
+              cognizant where i got introduced to the world of cloud and
+              infrastructure. During my tenure at cognizant, I got an tools and
+              technologies like AWS, Azure, Jenkins, Docker, Kubernetes,
+              Terraform, Ansible, Git, JIRA, Confluence, Splunk, ELK,
+              Prometheus, Grafana, Nagios, New Relic, Dynatrace, AppDynamics,
+              Datadog, Zabbix
             </p>
           </div>
           <div className="mt-8">
@@ -121,6 +186,23 @@ const About = () => {
                 })}
               </tbody>
             </table>
+          </div>
+          <div className="mt-8">
+            <div>
+              <p className="text-lg">
+                <span>{projectCount}</span>+ Projects Completed
+              </p>
+            </div>
+            <div className="mt-2">
+              <Link
+                href={"https://www.linkedin.com/in/arpit-kumar-5a26201b4/"}
+                target="_blank"
+              >
+                <button className="rounded-full bg-yellow-400 p-3 text-sm font-semibold text-black">
+                  LINKEDIN
+                </button>
+              </Link>
+            </div>
           </div>
         </div>
       </div>

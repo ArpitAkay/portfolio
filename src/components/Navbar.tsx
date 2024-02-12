@@ -1,29 +1,22 @@
 "use client";
 
-import Link from "next/link";
 import React from "react";
+import Drawer from "./Drawer";
 
-const Navbar = () => {
-  const [isMobile, setIsMobile] = React.useState<boolean>(false);
+interface NavbarProps {
+  handleNavbarClick: (val: string) => void;
+}
 
-  const handleResize = () => {
-    setIsMobile(window.innerWidth < 850);
-  };
-
-  React.useEffect(() => {
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
-
+const Navbar = (props: NavbarProps) => {
+  const [isOpen, setIsOpen] = React.useState<boolean>(false);
   return (
     <nav className="h-full w-full text-white">
       <div className="flex h-full w-full justify-center text-white">
         <div className="flex w-4/6 items-center justify-between">
-          <div className="text-3xl">
-            {/* <p className="text-3xl font-extrabold text-white"> */}
+          <div className="h-1/2 text-3xl">
             <svg
-              width="164.2"
-              height="37.92"
+              width="100%"
+              height="100%"
               viewBox="0 0 164.2 37.92"
               xmlns="http://www.w3.org/2000/svg"
             >
@@ -47,21 +40,122 @@ const Navbar = () => {
                 />
               </g>
             </svg>
-            {/* </p> */}
           </div>
-          {!isMobile && (
-            <div className="float-right text-lg text-white">
-              <Link href={"#home"}>
-                <button className="mx-2 line-through decoration-yellow-400">
-                  Home
-                </button>
-              </Link>
-              <button className="mx-2">About</button>
-              <button className="mx-2">Resume</button>
-              <button className="mx-2">Projects</button>
-              <button className="mx-2">Contact</button>
+          {/* Web */}
+          <div className="float-right hidden text-lg text-white lg:block 2xl:text-4xl">
+            <button
+              className="mx-2 decoration-yellow-400 decoration-2 hover:underline 2xl:decoration-4"
+              onClick={() => props.handleNavbarClick("Home")}
+              name="Home"
+            >
+              Home
+            </button>
+            <button
+              className="mx-2 decoration-yellow-400 decoration-2 hover:underline 2xl:decoration-4"
+              onClick={() => props.handleNavbarClick("About")}
+              name="About"
+            >
+              About
+            </button>
+            <button
+              className="mx-2 decoration-yellow-400 decoration-2 hover:underline 2xl:decoration-4"
+              onClick={() => props.handleNavbarClick("Resume")}
+              name="Resume"
+            >
+              Resume
+            </button>
+            <button
+              className="mx-2 decoration-yellow-400 decoration-2 hover:underline 2xl:decoration-4"
+              onClick={() => props.handleNavbarClick("Projects")}
+              name="Projects"
+            >
+              Projects
+            </button>
+            <button
+              className="mx-2 decoration-yellow-400 decoration-2 hover:underline 2xl:decoration-4"
+              onClick={() => props.handleNavbarClick("Contact")}
+              name="Contact"
+            >
+              Contact
+            </button>
+          </div>
+          {/* Mobile */}
+          <div className="block lg:hidden">
+            <button
+              type="button"
+              onClick={() => setIsOpen(!isOpen)}
+              data-modal-target="default-modal"
+              data-modal-toggle="default-modal"
+            >
+              <svg
+                className="h-8 w-8 text-white"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d="M4 6h16M4 12h16m-7 6h7"
+                />
+              </svg>
+            </button>
+          </div>
+          <Drawer isOpen={isOpen} setIsOpen={setIsOpen}>
+            <div>
+              <button
+                className="w-full py-2 text-white decoration-yellow-400 decoration-2 hover:underline"
+                onClick={() => {
+                  setIsOpen(false);
+                  props.handleNavbarClick("Home");
+                }}
+                name="Home"
+              >
+                Home
+              </button>
+              <button
+                className="w-full py-2 text-white decoration-yellow-400 decoration-2 hover:underline"
+                onClick={() => {
+                  setIsOpen(false);
+                  props.handleNavbarClick("About");
+                }}
+                name="About"
+              >
+                About
+              </button>
+              <button
+                className="w-full py-2 text-white decoration-yellow-400 decoration-2 hover:underline"
+                onClick={() => {
+                  setIsOpen(false);
+                  props.handleNavbarClick("Resume");
+                }}
+                name="Resume"
+              >
+                Resume
+              </button>
+              <button
+                className="w-full py-2 text-white decoration-yellow-400 decoration-2 hover:underline"
+                onClick={() => {
+                  setIsOpen(false);
+                  props.handleNavbarClick("Projects");
+                }}
+                name="Projects"
+              >
+                Projects
+              </button>
+              <button
+                className="w-full py-2 text-white decoration-yellow-400 decoration-2 hover:underline"
+                onClick={() => {
+                  setIsOpen(false);
+                  props.handleNavbarClick("Contact");
+                }}
+                name="Contact"
+              >
+                Contact
+              </button>
             </div>
-          )}
+          </Drawer>
         </div>
       </div>
     </nav>

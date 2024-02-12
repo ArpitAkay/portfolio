@@ -2,7 +2,6 @@
 
 import Link from "next/link";
 import React from "react";
-import programmingsvg from "../svg/programming.svg";
 
 const HomePage = () => {
   const [text, setText] = React.useState("");
@@ -35,20 +34,22 @@ const HomePage = () => {
     <div className="h-full w-full sm:w-4/6">
       <div className="flex h-full w-full flex-row items-start px-2 xl:items-center">
         <div className="flex flex-col items-start text-white 2xl:items-center">
-          <p className="text-lg text-yellow-500 2xl:text-4xl">
+          <p className="text-lg text-yellow-400 2xl:text-4xl">
             Hello!
             <span className="ms-2 text-2xl 2xl:text-4xl">&#128075;</span>
           </p>
           <p className="mt-2 inline-block text-4xl font-extrabold sm:text-5xl 2xl:text-8xl">
             I'm <span className="text-yellow-400">{text}</span>
           </p>
-          <p className="my-4 text-xl text-yellow-50 opacity-50 hover:opacity-100 2xl:text-4xl">
-            Welcome to my portfolio! I'm a proficient Java Spring Boot developer
-            with a knack for architecting full-stack web applications that
-            redefine user experiences. A quick learner and dedicated team
-            player, I thrive on the dynamic challenges of software development.
-            Passionate about innovation, I'm always eager to immerse myself in
-            the latest technologies, pushing the boundaries of what's possible.
+          {/* <p className="text-xl 2xl:mt-4 2xl:text-4xl">Software Engineer</p> */}
+          <p className="my-4 text-xl 2xl:text-4xl">
+            I’m a backend developer specializing in Java and Spring Boot. I
+            excel in building REST and GraphQL APIs, emphasizing efficient
+            database design and secure implementations for seamless
+            functionality and optimal performance. Additionally, I’m skilled in
+            front-end development using React and TypeScript. I’m passionate
+            about learning new technologies and frameworks and am always looking
+            for opportunities to grow and expand my skill set.
           </p>
           <div className="flex w-full flex-row justify-center sm:justify-end">
             <Link
@@ -61,7 +62,9 @@ const HomePage = () => {
               </button>
             </Link>
             <Link
-              href={""}
+              href={
+                "https://drive.google.com/file/d/12A-lICgmJvOVDOQZtWbOfNEtbrzLLQwm/view?usp=sharing"
+              }
               target="_blank"
               className="mx-2 opacity-50 hover:opacity-100"
             >

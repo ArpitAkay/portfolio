@@ -290,6 +290,7 @@ const WhatIDo = () => {
           {techStack.map((item) => {
             return (
               <SkillItem
+                key={item.id}
                 title={item.title}
                 skillSvg={item.skillSvg}
                 description={item.description}

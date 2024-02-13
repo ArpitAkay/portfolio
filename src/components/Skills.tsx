@@ -13,14 +13,14 @@ import mongodb from "../svg/mongodb.svg";
 import redis from "../svg/redis.svg";
 import git from "../svg/git.svg";
 import gitlab from "../svg/gitlab.svg";
-import github from "../svg/github-bg-slate.svg";
+import github from "../svg/github.svg";
 import docker from "../svg/docker.svg";
 import kubernetes from "../svg/kubernetes.svg";
 import azure from "../svg/azure.svg";
 import Heading from "./Heading";
 import SkillItem from "./SkillItem";
 
-const WhatIDo = ({ darkMode }: { darkMode: boolean }) => {
+const Skills = ({ darkMode }: { darkMode: boolean }) => {
   const techStack = [
     {
       id: 1,
@@ -75,23 +75,23 @@ const WhatIDo = ({ darkMode }: { darkMode: boolean }) => {
       description: [
         {
           id: 1,
-          text: "Lorem, ipsum dolor sit amet consectetur adipisicing elit.",
+          text: "Building responsive Single-Page-Apps (SPA) using React.",
         },
         {
           id: 2,
-          text: "Lorem, ipsum dolor sit amet consectetur adipisicing elit.",
+          text: "Building server-side rendered apps using NextJS.",
         },
         {
           id: 3,
-          text: "Lorem, ipsum dolor sit amet consectetur adipisicing elit.",
+          text: "Using typescript for type safety and better code quality.",
         },
         {
           id: 4,
-          text: "Lorem, ipsum dolor sit amet consectetur adipisicing elit.",
+          text: "TailwindCSS, Bootstrap, and Material UI for responsive design and rapid development.",
         },
         {
           id: 5,
-          text: "Lorem, ipsum dolor sit amet consectetur adipisicing elit.",
+          text: "Redux for global state management.",
         },
       ],
     },
@@ -143,24 +143,24 @@ const WhatIDo = ({ darkMode }: { darkMode: boolean }) => {
       description: [
         {
           id: 1,
-          text: "Lorem, ipsum dolor sit amet consectetur adipisicing elit.",
+          text: "Experience in building monolithic and microservices projects using Springboot",
         },
         {
           id: 2,
-          text: "Lorem, ipsum dolor sit amet consectetur adipisicing elit.",
+          text: "Proficient in building RESTful & GraphQL APIs using Springboot.",
         },
         {
           id: 3,
-          text: "Lorem, ipsum dolor sit amet consectetur adipisicing elit.",
+          text: "Experience in using RabbitMQ and Apache Kafka for event-driven architecture.",
         },
         {
           id: 4,
-          text: "Lorem, ipsum dolor sit amet consectetur adipisicing elit.",
+          text: "Worked with Junit and Mockito for unit testing.",
         },
-        {
-          id: 5,
-          text: "Lorem, ipsum dolor sit amet consectetur adipisicing elit.",
-        },
+        // {
+        //   id: 5,
+        //   text: "",
+        // },
       ],
     },
     {
@@ -186,24 +186,24 @@ const WhatIDo = ({ darkMode }: { darkMode: boolean }) => {
       description: [
         {
           id: 1,
-          text: "Lorem, ipsum dolor sit amet consectetur adipisicing elit.",
+          text: "Experience in designing and managing relational databases using MySQL.",
         },
         {
           id: 2,
-          text: "Lorem, ipsum dolor sit amet consectetur adipisicing elit.",
+          text: "Experience in designing and managing NoSQL databases using MongoDB.",
         },
         {
           id: 3,
-          text: "Lorem, ipsum dolor sit amet consectetur adipisicing elit.",
+          text: "Experience in using Redis for caching and session management.",
         },
-        {
-          id: 4,
-          text: "Lorem, ipsum dolor sit amet consectetur adipisicing elit.",
-        },
-        {
-          id: 5,
-          text: "Lorem, ipsum dolor sit amet consectetur adipisicing elit.",
-        },
+        // {
+        //   id: 4,
+        //   text: "",
+        // },
+        // {
+        //   id: 5,
+        //   text: "Lorem, ipsum dolor sit amet consectetur adipisicing elit.",
+        // },
       ],
     },
     {
@@ -244,23 +244,23 @@ const WhatIDo = ({ darkMode }: { darkMode: boolean }) => {
       description: [
         {
           id: 1,
-          text: "Lorem, ipsum dolor sit amet consectetur adipisicing elit.",
+          text: "For hosting and managing code, I use Github and Gitlab.",
         },
         {
           id: 2,
-          text: "Lorem, ipsum dolor sit amet consectetur adipisicing elit.",
+          text: "Experience in using Git for version control.",
         },
         {
           id: 3,
-          text: "Lorem, ipsum dolor sit amet consectetur adipisicing elit.",
+          text: "Experience in using Docker for containerization.",
         },
         {
           id: 4,
-          text: "Lorem, ipsum dolor sit amet consectetur adipisicing elit.",
+          text: "Knows about Kubernetes for container orchestration.",
         },
         {
           id: 5,
-          text: "Lorem, ipsum dolor sit amet consectetur adipisicing elit.",
+          text: "Knows about Azure for cloud computing.",
         },
       ],
     },
@@ -268,35 +268,33 @@ const WhatIDo = ({ darkMode }: { darkMode: boolean }) => {
 
   const colorProp = darkMode
     ? {
-        color1: "text-white",
-        color2: "text-gray-400",
+        textColor: "text-white",
         backgroundColor: "bg-slate-950",
       }
     : {
-        color1: "text-black",
-        color2: "text-gray-950",
+        textColor: "text-black",
         backgroundColor: "bg-slate-200",
       };
 
   return (
     <div className="w-full sm:w-4/6">
       <div className="p-4">
-        <div className={`relative ${colorProp.color1}`}>
+        <div className={`relative ${colorProp.textColor}`}>
           <div>
             <Heading
-              textColor={colorProp.color1}
-              title={"What I Do"}
-              titleSize={"text-5xl"}
-              subtitle={"What I Do"}
-              subtitleSize={"text-7xl"}
+              textColor={colorProp.textColor}
+              title={"Skills"}
+              subtitle={"Skills"}
               top={"top-0"}
               left={"left-0"}
             />
           </div>
         </div>
-        <div className="mt-8">
-          <p className={colorProp.color2}>
-            Passionate full-stack developer hungry for tech exploration.
+        <div className="mt-8 2xl:mt-14">
+          <p
+            className={`text-sm lg:text-lg 2xl:text-2xl ${colorProp.textColor}`}
+          >
+            Passionate developer hungry for tech exploration.
           </p>
         </div>
         <div className="mt-4 grid w-full grid-cols-1 gap-4 xl:grid-cols-2">
@@ -317,4 +315,4 @@ const WhatIDo = ({ darkMode }: { darkMode: boolean }) => {
   );
 };
 
-export default WhatIDo;
+export default Skills;

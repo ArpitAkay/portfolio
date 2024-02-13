@@ -13,16 +13,20 @@ const Navbar = (props: NavbarProps) => {
   const [isOpen, setIsOpen] = React.useState<boolean>(false);
   const colorProp = props.darkMode
     ? {
-        color: "text-white",
+        textColor: "text-white",
+        decorationColor: "decoration-yellow-400",
+        svgColor: "#fffefe", //black
         backgroundColor: "bg-slate-950",
       }
     : {
-        color: "text-black",
+        textColor: "text-black",
+        decorationColor: "decoration-black",
+        svgColor: "#000000", //white
         backgroundColor: "bg-slate-200",
       };
   return (
     <nav
-      className={`h-full w-full transition-colors ${colorProp.backgroundColor} ${colorProp.color}`}
+      className={`h-full w-full transition-colors ${colorProp.backgroundColor} ${colorProp.textColor}`}
     >
       <div className="flex h-full w-full justify-center">
         <div className="flex w-4/6 items-center justify-between">
@@ -39,13 +43,13 @@ const Navbar = (props: NavbarProps) => {
                 strokeLinecap="round"
                 fillRule="evenodd"
                 fontSize="9pt"
-                stroke={props.darkMode ? "#fffefe" : "#000000"}
+                stroke={colorProp.svgColor}
                 strokeWidth="0.25mm"
-                fill={props.darkMode ? "#fffefe" : "#000000"}
+                fill={colorProp.svgColor}
                 style={{
-                  stroke: props.darkMode ? "#fffefe" : "#000000",
+                  stroke: colorProp.svgColor,
                   strokeWidth: "0.25mm",
-                  fill: props.darkMode ? "#fffefe" : "#000000",
+                  fill: colorProp.svgColor,
                 }}
               >
                 <path
@@ -59,35 +63,35 @@ const Navbar = (props: NavbarProps) => {
             {/* Web */}
             <div className="hidden text-lg font-semibold lg:block 2xl:text-3xl">
               <button
-                className="mx-2 decoration-yellow-400 decoration-2 hover:underline 2xl:decoration-4"
-                onClick={() => props.handleNavbarClick("Home")}
-                name="Home"
-              >
-                Home
-              </button>
-              <button
-                className="mx-2 decoration-yellow-400 decoration-2 hover:underline 2xl:decoration-4"
+                className={`mx-2 ${colorProp.decorationColor} decoration-2 hover:underline 2xl:decoration-4`}
                 onClick={() => props.handleNavbarClick("About")}
                 name="About"
               >
                 About
               </button>
               <button
-                className="mx-2 decoration-yellow-400 decoration-2 hover:underline 2xl:decoration-4"
+                className={`mx-2 ${colorProp.decorationColor} decoration-2 hover:underline 2xl:decoration-4`}
+                onClick={() => props.handleNavbarClick("Skills")}
+                name="Skills"
+              >
+                Skills
+              </button>
+              <button
+                className={`mx-2 ${colorProp.decorationColor} decoration-2 hover:underline 2xl:decoration-4`}
                 onClick={() => props.handleNavbarClick("Resume")}
                 name="Resume"
               >
                 Resume
               </button>
               <button
-                className="mx-2 decoration-yellow-400 decoration-2 hover:underline 2xl:decoration-4"
+                className={`mx-2 ${colorProp.decorationColor} decoration-2 hover:underline 2xl:decoration-4`}
                 onClick={() => props.handleNavbarClick("Projects")}
                 name="Projects"
               >
                 Projects
               </button>
               <button
-                className="mx-2 decoration-yellow-400 decoration-2 hover:underline 2xl:decoration-4"
+                className={`mx-2 ${colorProp.decorationColor} decoration-2 hover:underline 2xl:decoration-4`}
                 onClick={() => props.handleNavbarClick("Contact")}
                 name="Contact"
               >
@@ -101,7 +105,7 @@ const Navbar = (props: NavbarProps) => {
                   onClick={() => props.setDarkMode(true)}
                 >
                   <svg
-                    className={`h-6 w-6 2xl:h-10 2xl:w-10 ${colorProp.color} opacity-75`}
+                    className={`h-6 w-6 2xl:h-10 2xl:w-10 ${colorProp.textColor} opacity-75`}
                     viewBox="0 0 24 24"
                     fill="none"
                     stroke="currentColor"
@@ -151,7 +155,7 @@ const Navbar = (props: NavbarProps) => {
                 data-modal-toggle="default-modal"
               >
                 <svg
-                  className={`h-8 w-8 ${colorProp.color}`}
+                  className={`h-8 w-8 ${colorProp.textColor}`}
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke="currentColor"
@@ -174,7 +178,7 @@ const Navbar = (props: NavbarProps) => {
           >
             <div>
               <button
-                className="w-full py-2 text-white decoration-yellow-400 decoration-2 hover:underline"
+                className={`w-full py-2 ${colorProp.textColor} ${colorProp.decorationColor} decoration-2 hover:underline`}
                 onClick={() => {
                   setIsOpen(false);
                   props.handleNavbarClick("Home");
@@ -184,7 +188,7 @@ const Navbar = (props: NavbarProps) => {
                 Home
               </button>
               <button
-                className="w-full py-2 text-white decoration-yellow-400 decoration-2 hover:underline"
+                className={`w-full py-2 ${colorProp.textColor} ${colorProp.decorationColor} decoration-2 hover:underline`}
                 onClick={() => {
                   setIsOpen(false);
                   props.handleNavbarClick("About");
@@ -194,7 +198,7 @@ const Navbar = (props: NavbarProps) => {
                 About
               </button>
               <button
-                className="w-full py-2 text-white decoration-yellow-400 decoration-2 hover:underline"
+                className={`w-full py-2 ${colorProp.textColor} ${colorProp.decorationColor} decoration-2 hover:underline`}
                 onClick={() => {
                   setIsOpen(false);
                   props.handleNavbarClick("Resume");
@@ -204,7 +208,7 @@ const Navbar = (props: NavbarProps) => {
                 Resume
               </button>
               <button
-                className="w-full py-2 text-white decoration-yellow-400 decoration-2 hover:underline"
+                className={`w-full py-2 ${colorProp.textColor} ${colorProp.decorationColor} decoration-2 hover:underline`}
                 onClick={() => {
                   setIsOpen(false);
                   props.handleNavbarClick("Projects");
@@ -214,7 +218,7 @@ const Navbar = (props: NavbarProps) => {
                 Projects
               </button>
               <button
-                className="w-full py-2 text-white decoration-yellow-400 decoration-2 hover:underline"
+                className={`w-full py-2 ${colorProp.textColor} ${colorProp.decorationColor} decoration-2 hover:underline`}
                 onClick={() => {
                   setIsOpen(false);
                   props.handleNavbarClick("Contact");

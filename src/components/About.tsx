@@ -5,6 +5,8 @@ import avatar from "../images/avatar.png";
 import PercentageBar from "./PercentageBar";
 import Link from "next/link";
 import Heading from "./Heading";
+import Image from "next/image";
+import linkedin from "../svg/linkedin.svg";
 
 const About = ({ darkMode }: { darkMode: boolean }) => {
   const skills = [
@@ -53,13 +55,13 @@ const About = ({ darkMode }: { darkMode: boolean }) => {
     },
     {
       id: 5,
-      attribute: "BI Tools",
-      value: "Microsoft Power BI, Looker, Tableau",
+      attribute: "Frontend",
+      value: "React, Next.js",
     },
     {
       id: 6,
-      attribute: "Other Skills",
-      value: "Cloud, PySpark, Excel, Git, JIRA, Google Analytics, SEO",
+      attribute: "Backend",
+      value: "Java, Spring Boot",
     },
     {
       id: 7,
@@ -71,14 +73,14 @@ const About = ({ darkMode }: { darkMode: boolean }) => {
   const [projectCount, setProjectCount] = React.useState(1);
   const colorProp = darkMode
     ? {
-        color1: "text-white",
-        color2: "text-gray-400",
-        backgroundColor: "bg-slate-950",
+        textColor1: "text-white",
+        textColor2: "text-gray-400",
+        avatarBgColor: "bg-yellow-400",
       }
     : {
-        color1: "text-black",
-        color2: "text-gray-950",
-        backgroundColor: "bg-slate-200",
+        textColor1: "text-black",
+        textColor2: "text-gray-950",
+        avatarBgColor: "bg-slate-500",
       };
 
   React.useEffect(() => {
@@ -103,56 +105,50 @@ const About = ({ darkMode }: { darkMode: boolean }) => {
   return (
     <div className="w-full sm:w-4/6">
       <div
-        className={`grid grid-cols-1 gap-4 ${colorProp.color1} xl:grid-cols-2`}
+        className={`grid grid-cols-1 gap-4 ${colorProp.textColor1} xl:grid-cols-2`}
       >
         <div className="p-4">
-          <div className="grid grid-cols-1 xl:grid-cols-2 xl:gap-2 2xl:grid-cols-3">
-            <div className="flex flex-row items-center justify-center 2xl:col-span-1">
-              <img
+          <div className="grid grid-cols-1 gap-2 2xl:grid-cols-3">
+            <div className="flex flex-row items-center justify-center">
+              <Image
                 alt="arpit kumar"
                 src={avatar.src}
-                className="h-48 w-48 rounded-full border-2 border-s-white bg-yellow-400"
+                width={200}
+                height={200}
+                className={`rounded-full border-2 border-s-white ${colorProp.avatarBgColor}`}
               />
             </div>
-            <div className="flex flex-row items-center justify-center p-2 2xl:col-span-2 2xl:text-2xl">
-              <table className="table-auto">
+            <div className="flex flex-row items-center justify-center p-2 2xl:col-span-2 2xl:justify-start">
+              <table className="table-auto text-sm lg:text-lg 2xl:text-xl">
                 <tbody>
                   <tr>
-                    <td className="text-lg font-bold">Name:</td>
-                    <td className={`text-base ${colorProp.color2}`}>
-                      Arpit Kumar
-                    </td>
+                    <td className="font-bold">Name:</td>
+                    <td className={colorProp.textColor2}>Arpit Kumar</td>
                   </tr>
                   <tr>
-                    <td className="text-lg font-bold ">Job Role:</td>
-                    <td className={`text-base ${colorProp.color2}`}>
-                      Backend Developer
-                    </td>
+                    <td className="font-bold ">Job Role:</td>
+                    <td className={colorProp.textColor2}>Backend Developer</td>
                   </tr>
                   <tr>
-                    <td className="text-lg font-bold">Experience:</td>
-                    <td className={`text-base ${colorProp.color2}`}>
-                      1 Year 10 Months
-                    </td>
+                    <td className="font-bold">Experience:</td>
+                    <td className={colorProp.textColor2}>1 Year 10 Months</td>
                   </tr>
                   <tr>
-                    <td className="text-lg font-bold">Address:</td>
-                    <td className={`text-base ${colorProp.color2}`}>
-                      Bengaluru, India
-                    </td>
+                    <td className="font-bold">Address:</td>
+                    <td className={colorProp.textColor2}>Bengaluru, India</td>
                   </tr>
                 </tbody>
               </table>
             </div>
           </div>
           {/* skills */}
-          <div className={`mt-8 ${colorProp.color2}`}>
+          <div className={`mt-2 ${colorProp.textColor2}`}>
             <div>
-              <p className="text-xl">Skills</p>
+              <p className="text-xl 2xl:text-2xl">Skills</p>
             </div>
             {skills.map((skill) => {
               return (
-                <div className="mt-4 w-full p-2" key={skill.id}>
+                <div className="w-full p-2" key={skill.id}>
                   <PercentageBar
                     percentage={skill.percent}
                     skill={skill.name}
@@ -167,60 +163,47 @@ const About = ({ darkMode }: { darkMode: boolean }) => {
           {/* About Heading */}
           <div>
             <Heading
-              textColor={colorProp.color1}
+              textColor={colorProp.textColor1}
               title={"About Me"}
-              titleSize={"text-5xl"}
               subtitle={"About"}
-              subtitleSize={"text-8xl"}
-              top={"-top-2"}
+              top={"top-0"}
               left={"left-0"}
             />
           </div>
-          <div className="mt-10">
-            <p className={`text-base ${colorProp.color1}`}>
-              I started my career as internship trainee as DevOps Engineer at
-              cognizant where i got introduced to the world of cloud and
-              infrastructure. During my tenure at cognizant, I got an tools and
-              technologies like AWS, Azure, Jenkins, Docker, Kubernetes,
-              Terraform, Ansible, Git, JIRA, Confluence, Splunk, ELK,
-              Prometheus, Grafana, Nagios, New Relic, Dynatrace, AppDynamics,
-              Datadog, Zabbix
+          <div className="mt-8 2xl:mt-12">
+            <p
+              className={`text-sm lg:text-lg 2xl:text-xl ${colorProp.textColor1} text-justify`}
+            >
+              I’m a backend developer specializing in Java and Spring Boot. I
+              excel in building REST and GraphQL APIs, emphasizing efficient
+              database design and secure implementations for seamless
+              functionality and optimal performance. Additionally, I have
+              frontend development experience with React and Next.js. I am
+              passionate about learning new technologies and frameworks, and I
+              am always eager to take on new challenges.
             </p>
           </div>
-          <div className="mt-8">
-            <table className="w-full table-auto">
+          <div className="mt-4">
+            <table className="w-full table-auto text-sm lg:text-lg 2xl:text-xl">
               <tbody>
                 {profileInfo.map((info) => {
                   return (
                     <tr key={info.id}>
-                      <td className="text-lg font-bold">{info.attribute}:</td>
-                      <td className={`text-base ${colorProp.color2}`}>
-                        {info.value}
-                      </td>
+                      <td className="font-bold">{info.attribute}:</td>
+                      <td className={colorProp.textColor2}>{info.value}</td>
                     </tr>
                   );
                 })}
               </tbody>
             </table>
           </div>
-          <div className="mt-8">
-            <div>
-              <p className="text-lg">
-                <span>{projectCount}</span>+ Projects Completed
-              </p>
-            </div>
-            <div className="mt-2">
-              <Link
-                href={"https://www.linkedin.com/in/arpit-kumar-5a26201b4/"}
-                target="_blank"
-              >
-                <button
-                  className={`rounded-full bg-yellow-400 p-3 text-sm font-semibold ${colorProp.color1}`}
-                >
-                  LINKEDIN
-                </button>
-              </Link>
-            </div>
+          <div className="mt-4">
+            <Link
+              href={"https://www.linkedin.com/in/arpit-kumar-5a26201b4/"}
+              target="_blank"
+            >
+              <Image src={linkedin.src} alt="linkedin" width={50} height={50} />
+            </Link>
           </div>
         </div>
       </div>

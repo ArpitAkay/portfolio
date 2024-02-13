@@ -3,8 +3,6 @@
 import About from "@/components/About";
 import HomePage from "@/components/HomePage";
 import Navbar from "@/components/Navbar";
-import version_control from "../svg/version_control.svg";
-import WhatIDo from "@/components/WhatIDo";
 import Resume from "@/components/Resume";
 import Projects from "@/components/Projects";
 import MoreOnGitHub from "@/components/MoreOnGitHub";
@@ -13,6 +11,7 @@ import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 import React, { useRef, useState } from "react";
 import { motion } from "framer-motion";
+import Skills from "@/components/Skills";
 
 export default function Home() {
   const sectionRef = useRef<HTMLDivElement | null>(null);
@@ -30,6 +29,13 @@ export default function Home() {
       case "About": {
         sectionRef.current!.scrollTo({
           top: document.getElementById("about")!.offsetTop - 140,
+          behavior: "smooth",
+        });
+        break;
+      }
+      case "Skills": {
+        sectionRef.current!.scrollTo({
+          top: document.getElementById("what-i-do")!.offsetTop - 140,
           behavior: "smooth",
         });
         break;
@@ -109,7 +115,7 @@ export default function Home() {
       >
         <About darkMode={darkMode} />
       </motion.section>
-      {/* What I Do */}
+      {/* Skills */}
       <motion.section
         initial={{
           y: 200,
@@ -121,9 +127,9 @@ export default function Home() {
         }}
         transition={{ type: "spring", stiffness: 50 }}
         id="what-i-do"
-        className="mt-20 flex w-full flex-row justify-center"
+        className="mt-4 flex w-full flex-row justify-center"
       >
-        <WhatIDo darkMode={darkMode} />
+        <Skills darkMode={darkMode} />
       </motion.section>
       {/* Resume */}
       <motion.section
@@ -137,7 +143,7 @@ export default function Home() {
         }}
         transition={{ type: "spring", stiffness: 50 }}
         id="resume"
-        className="mt-20 flex w-full flex-row justify-center"
+        className="mt-4 flex w-full flex-row justify-center"
       >
         <Resume darkMode={darkMode} />
       </motion.section>
@@ -153,7 +159,7 @@ export default function Home() {
         }}
         transition={{ type: "spring", stiffness: 50 }}
         id="projects"
-        className="mt-20 flex w-full flex-row justify-center"
+        className="mt-4 flex w-full flex-row justify-center"
       >
         <Projects darkMode={darkMode} />
       </motion.section>

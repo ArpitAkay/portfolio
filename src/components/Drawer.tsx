@@ -14,10 +14,12 @@ export default function Drawer({
   const colorProp = darkMode
     ? {
         color: "text-white",
+        svgColor: "#fffefe", //black
         backgroundColor: "bg-slate-950",
       }
     : {
         color: "text-black",
+        svgColor: "#000000", //white
         backgroundColor: "bg-slate-200",
       };
   return (
@@ -46,13 +48,13 @@ export default function Drawer({
                   strokeLinecap="round"
                   fillRule="evenodd"
                   fontSize="9pt"
-                  stroke="#fffefe"
+                  stroke={colorProp.svgColor}
                   strokeWidth="0.25mm"
-                  fill="#ffffff"
+                  fill={colorProp.svgColor}
                   style={{
-                    stroke: "#fffefe",
+                    stroke: colorProp.svgColor,
                     strokeWidth: "0.25mm",
-                    fill: "#ffffff",
+                    fill: colorProp.svgColor,
                   }}
                 >
                   <path

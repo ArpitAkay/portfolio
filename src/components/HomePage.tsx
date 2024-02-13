@@ -9,14 +9,14 @@ const HomePage = ({ darkMode }: { darkMode: boolean }) => {
 
   const colorProp = darkMode
     ? {
-        color1: "text-white",
-        color2: "text-yellow-400",
+        textColor1: "text-white",
+        textColor2: "text-yellow-400",
         backgroundColor: "bg-slate-950",
         borderColor: "border-white",
       }
     : {
-        color1: "text-black",
-        color2: "text-slate-800",
+        textColor1: "text-black",
+        textColor2: "text-slate-500",
         backgroundColor: "bg-slate-200",
         borderColor: "border-black",
       };
@@ -47,22 +47,26 @@ const HomePage = ({ darkMode }: { darkMode: boolean }) => {
   return (
     <div className="h-full w-full sm:w-4/6">
       <div className="flex h-full w-full flex-col justify-center px-2">
-        <div className={`flex flex-col ${colorProp.color1}`}>
-          <p className={`text-lg ${colorProp.color2} font-medium 2xl:text-4xl`}>
+        <div className={`flex flex-col ${colorProp.textColor1}`}>
+          <p
+            className={`text-lg ${colorProp.textColor2} font-medium 2xl:text-4xl`}
+          >
             Hello!
             <span className="ms-2 text-2xl 2xl:text-4xl">&#128075;</span>
           </p>
           <p className="mt-2 inline-block text-4xl font-extrabold sm:text-5xl 2xl:text-8xl">
-            I'm <span className={colorProp.color2}>{text}</span>
+            I'm <span className={colorProp.textColor2}>{text}</span>
           </p>
-          <p className="mt-2 text-2xl 2xl:text-4xl">Software Engineer</p>
-          <p className="my-4 text-xl font-medium 2xl:text-4xl">
-            Welcome to my portfolio website &#128640;. Explore my portfolio and
-            feel free to me react me out.
+          <p className="mt-2 text-xl font-medium 2xl:text-4xl">
+            Software Engineer
+          </p>
+          <p className="mt-2 text-xl font-medium 2xl:text-4xl">
+            Welcome to my portfolio &#128640;. Feel free to explore, and don't
+            hesitate to reach out to me.
           </p>
         </div>
         <div
-          className={`flex w-full flex-row justify-center sm:justify-end ${colorProp.color1} mt-10`}
+          className={`flex w-full flex-row justify-center sm:justify-end ${colorProp.textColor1} mt-10`}
         >
           <Link
             href="https://github.com/ArpitAkay"

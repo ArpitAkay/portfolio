@@ -1,5 +1,5 @@
 import { Tooltip, Zoom } from "@mui/material";
-import { red } from "@mui/material/colors";
+import shadows from "@mui/material/styles/shadows";
 import React from "react";
 
 interface skillSvgItem {
@@ -23,23 +23,31 @@ interface SkillItemProps {
 const SkillItem = (props: SkillItemProps) => {
   const colorProp = props.darkMode
     ? {
-        color1: "text-white",
-        color2: "text-gray-400",
-        backgroundColor: "bg-slate-800",
-        hoverBackgroundColor: "bg-slate-600",
+        textColor1: "text-white",
+        textColor2: "text-white",
+        textColor3: "text-gray-400",
+        bgColor: "bg-slate-800",
+        hoverBgColor: "bg-slate-600",
+        svgBgColor: "bg-slate-400",
+        shadow: "shadow-none",
       }
     : {
-        color1: "text-black",
-        color2: "text-gray-950",
-        backgroundColor: "bg-slate-300",
-        hoverBackgroundColor: "bg-slate-500",
+        textColor1: "text-black",
+        textColor2: "text-slate-500",
+        textColor3: "text-black",
+        bgColor: "bg-slate-300",
+        hoverBgColor: "bg-black",
+        svgBgColor: "bg-white",
+        shadow: "shadow-md",
       };
   return (
     <div
-      className={`hover:scale-104 rounded-md ${colorProp.backgroundColor} p-2 transition delay-75 duration-300 ease-in-out hover:-translate-y-1 hover:${colorProp.hoverBackgroundColor}`}
+      className={`hover:scale-104 rounded-md ${colorProp.bgColor} p-2 transition delay-75 duration-300 ease-in-out hover:-translate-y-1 hover:${colorProp.hoverBgColor} ${colorProp.shadow}`}
     >
       <div>
-        <h4 className={`text-2xl ${colorProp.color1}`}>{props.title}</h4>
+        <h4 className={`text-2xl ${colorProp.textColor2} font-extrabold`}>
+          {props.title}
+        </h4>
       </div>
       <div className="mt-2 grid grid-cols-5 gap-2 sm:grid-cols-7 md:grid-cols-9 lg:grid-cols-9 xl:grid-cols-7 2xl:grid-cols-9">
         {props.skillSvg.map((item) => {
@@ -50,7 +58,7 @@ const SkillItem = (props: SkillItemProps) => {
             >
               <Tooltip title={item.name} arrow TransitionComponent={Zoom}>
                 <img
-                  className="h-full w-full rounded-md bg-slate-400 p-1"
+                  className={`h-full w-full rounded-md ${colorProp.svgBgColor} p-1`}
                   src={item.svg}
                   alt={item.name}
                 />
@@ -59,16 +67,16 @@ const SkillItem = (props: SkillItemProps) => {
           );
         })}
       </div>
-      <div className={`mt-4 p-2 text-base ${colorProp.color2}`}>
-        <ol className="list-inside list-disc">
+      <div className={`mt-4 p-2 text-base ${colorProp.textColor3}`}>
+        <ul className="list-inside list-decimal">
           {props.description.map((item) => {
             return (
-              <li className="my-1" key={item.id}>
+              <li className="text-sm lg:text-lg 2xl:text-2xl" key={item.id}>
                 {item.text}
               </li>
             );
           })}
-        </ol>
+        </ul>
       </div>
     </div>
   );

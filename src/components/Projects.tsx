@@ -53,14 +53,12 @@ const Projects = ({ darkMode }: { darkMode: boolean }) => {
 
   const colorProp = darkMode
     ? {
-        color1: "text-white",
-        color2: "text-gray-400",
+        textColor1: "text-white",
         backgroundColor: "bg-slate-800",
         hoverBackgroundColor: "bg-slate-600",
       }
     : {
-        color1: "text-black",
-        color2: "text-gray-950",
+        textColor1: "text-black",
         backgroundColor: "bg-slate-300",
         hoverBackgroundColor: "bg-slate-500",
       };
@@ -70,16 +68,14 @@ const Projects = ({ darkMode }: { darkMode: boolean }) => {
       <div className="w-full p-4">
         <div>
           <Heading
-            textColor={colorProp.color1}
+            textColor={colorProp.textColor1}
             title={"Projects"}
-            titleSize={"text-5xl"}
             subtitle={"Projects"}
-            subtitleSize={"text-7xl"}
             top={"top-0"}
             left={"left-0"}
           />
         </div>
-        <div className="mt-24 grid grid-cols-1 gap-4 lg:grid-cols-2 2xl:grid-cols-3">
+        <div className="mt-12 grid grid-cols-1 gap-4 lg:grid-cols-2 2xl:grid-cols-3">
           {projectData.map((item) => {
             return (
               <ProjectItem key={item.id} darkMode={darkMode} data={item} />

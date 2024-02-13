@@ -62,9 +62,7 @@ const Contact = ({ darkMode }: { darkMode: boolean }) => {
           <Heading
             textColor={colorProp.color1}
             title={"Contact Me"}
-            titleSize={"text-5xl"}
             subtitle={"Contact"}
-            subtitleSize={"text-7xl"}
             top={"top-0"}
             left={"left-0"}
           />

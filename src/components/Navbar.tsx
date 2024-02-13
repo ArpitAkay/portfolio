@@ -94,7 +94,7 @@ const Navbar = (props: NavbarProps) => {
                 Contact
               </button>
             </div>
-            <div className="me-2 flex items-center">
+            <div className="me-1 flex items-center sm:me-2">
               {!props.darkMode && (
                 <button
                   className="mx-2"

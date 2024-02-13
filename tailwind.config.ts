@@ -9,7 +9,7 @@ const config: Config = {
   theme: {
     extend: {
       backgroundImage: {
-        "version-control": "url('/src/svg/version_control.svg')",
+        "version-control": "url('../../src/svg/version_control.svg')",
       },
     },
   },

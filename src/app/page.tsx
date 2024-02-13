@@ -89,10 +89,7 @@ export default function Home() {
         }}
         transition={{ type: "spring", stiffness: 50 }}
         id="homepage"
-        className="bg-version-control mt-28 flex w-full justify-center bg-center bg-no-repeat sm:mt-44 md:bg-top xl:h-[40%] 2xl:mt-28 2xl:h-[95%] 2xl:bg-cover 2xl:bg-center"
-        style={{
-          backgroundImage: `url(${version_control.src})`,
-        }}
+        className="lg:bg-version-control mt-28 flex w-full justify-center bg-center bg-no-repeat sm:mt-44 md:bg-top xl:h-[40%] 2xl:mt-36 2xl:h-[95%] 2xl:bg-cover 2xl:bg-center"
       >
         <HomePage darkMode={darkMode} />
       </motion.section>

@@ -1,6 +1,7 @@
 import React from "react";
 
 interface HeadingProps {
+  textColor: string;
   title: string;
   titleSize: string;
   subtitle: string;
@@ -11,7 +12,7 @@ interface HeadingProps {
 
 const Heading = (props: HeadingProps) => {
   return (
-    <div className="relative text-white">
+    <div className={`relative ${props.textColor}`}>
       <h1 className={`${props.titleSize} font-extrabold`}>{props.title}</h1>
       <h1
         className={`absolute ${props.top} ${props.left} ${props.subtitleSize} font-extrabold opacity-10`}

@@ -13,14 +13,14 @@ import mongodb from "../svg/mongodb.svg";
 import redis from "../svg/redis.svg";
 import git from "../svg/git.svg";
 import gitlab from "../svg/gitlab.svg";
-import github from "../svg/github-alternate.svg";
+import github from "../svg/github-bg-slate.svg";
 import docker from "../svg/docker.svg";
 import kubernetes from "../svg/kubernetes.svg";
 import azure from "../svg/azure.svg";
 import Heading from "./Heading";
 import SkillItem from "./SkillItem";
 
-const WhatIDo = () => {
+const WhatIDo = ({ darkMode }: { darkMode: boolean }) => {
   const techStack = [
     {
       id: 1,
@@ -266,12 +266,25 @@ const WhatIDo = () => {
     },
   ];
 
+  const colorProp = darkMode
+    ? {
+        color1: "text-white",
+        color2: "text-gray-400",
+        backgroundColor: "bg-slate-950",
+      }
+    : {
+        color1: "text-black",
+        color2: "text-gray-950",
+        backgroundColor: "bg-slate-200",
+      };
+
   return (
     <div className="w-full sm:w-4/6">
       <div className="p-4">
-        <div className="relative text-white">
+        <div className={`relative ${colorProp.color1}`}>
           <div>
             <Heading
+              textColor={colorProp.color1}
               title={"What I Do"}
               titleSize={"text-5xl"}
               subtitle={"What I Do"}
@@ -282,7 +295,7 @@ const WhatIDo = () => {
           </div>
         </div>
         <div className="mt-8">
-          <p className="text-gray-400">
+          <p className={colorProp.color2}>
             Passionate full-stack developer hungry for tech exploration.
           </p>
         </div>
@@ -291,6 +304,7 @@ const WhatIDo = () => {
             return (
               <SkillItem
                 key={item.id}
+                darkMode={darkMode}
                 title={item.title}
                 skillSvg={item.skillSvg}
                 description={item.description}

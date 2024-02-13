@@ -6,7 +6,7 @@ import PercentageBar from "./PercentageBar";
 import Link from "next/link";
 import Heading from "./Heading";
 
-const About = () => {
+const About = ({ darkMode }: { darkMode: boolean }) => {
   const skills = [
     {
       id: 1,
@@ -69,6 +69,17 @@ const About = () => {
   ];
 
   const [projectCount, setProjectCount] = React.useState(1);
+  const colorProp = darkMode
+    ? {
+        color1: "text-white",
+        color2: "text-gray-400",
+        backgroundColor: "bg-slate-950",
+      }
+    : {
+        color1: "text-black",
+        color2: "text-gray-950",
+        backgroundColor: "bg-slate-200",
+      };
 
   React.useEffect(() => {
     let timeout: NodeJS.Timeout;
@@ -91,40 +102,42 @@ const About = () => {
 
   return (
     <div className="w-full sm:w-4/6">
-      <div className="grid grid-cols-1 gap-4 text-white xl:grid-cols-2">
+      <div
+        className={`grid grid-cols-1 gap-4 ${colorProp.color1} xl:grid-cols-2`}
+      >
         <div className="p-4">
           <div className="grid grid-cols-1 xl:grid-cols-2 xl:gap-2 2xl:grid-cols-3">
             <div className="flex flex-row items-center justify-center 2xl:col-span-1">
               <img
                 alt="arpit kumar"
                 src={avatar.src}
-                className="h-48 w-48 rounded-full border-2 border-s-white bg-yellow-300"
+                className="h-48 w-48 rounded-full border-2 border-s-white bg-yellow-400"
               />
             </div>
-            <div className="flex flex-row items-center justify-center p-2 text-gray-400 2xl:col-span-2 2xl:text-2xl">
+            <div className="flex flex-row items-center justify-center p-2 2xl:col-span-2 2xl:text-2xl">
               <table className="table-auto">
                 <tbody>
                   <tr>
-                    <td className="text-lg font-bold text-white">Name:</td>
-                    <td className="text-base text-gray-400">Arpit Kumar</td>
+                    <td className="text-lg font-bold">Name:</td>
+                    <td className={`text-base ${colorProp.color2}`}>
+                      Arpit Kumar
+                    </td>
                   </tr>
                   <tr>
-                    <td className="text-lg font-bold text-white">Job Role:</td>
-                    <td className="text-base text-gray-400">
+                    <td className="text-lg font-bold ">Job Role:</td>
+                    <td className={`text-base ${colorProp.color2}`}>
                       Backend Developer
                     </td>
                   </tr>
                   <tr>
-                    <td className="text-lg font-bold text-white">
-                      Experience:
-                    </td>
-                    <td className="text-base text-gray-400">
+                    <td className="text-lg font-bold">Experience:</td>
+                    <td className={`text-base ${colorProp.color2}`}>
                       1 Year 10 Months
                     </td>
                   </tr>
                   <tr>
-                    <td className="text-lg font-bold text-white">Address:</td>
-                    <td className="text-base text-gray-400">
+                    <td className="text-lg font-bold">Address:</td>
+                    <td className={`text-base ${colorProp.color2}`}>
                       Bengaluru, India
                     </td>
                   </tr>
@@ -133,7 +146,7 @@ const About = () => {
             </div>
           </div>
           {/* skills */}
-          <div className="mt-8 text-gray-400">
+          <div className={`mt-8 ${colorProp.color2}`}>
             <div>
               <p className="text-xl">Skills</p>
             </div>
@@ -154,6 +167,7 @@ const About = () => {
           {/* About Heading */}
           <div>
             <Heading
+              textColor={colorProp.color1}
               title={"About Me"}
               titleSize={"text-5xl"}
               subtitle={"About"}
@@ -163,7 +177,7 @@ const About = () => {
             />
           </div>
           <div className="mt-10">
-            <p className="text-base text-gray-400">
+            <p className={`text-base ${colorProp.color1}`}>
               I started my career as internship trainee as DevOps Engineer at
               cognizant where i got introduced to the world of cloud and
               infrastructure. During my tenure at cognizant, I got an tools and
@@ -180,7 +194,9 @@ const About = () => {
                   return (
                     <tr key={info.id}>
                       <td className="text-lg font-bold">{info.attribute}:</td>
-                      <td className="text-base text-gray-400">{info.value}</td>
+                      <td className={`text-base ${colorProp.color2}`}>
+                        {info.value}
+                      </td>
                     </tr>
                   );
                 })}
@@ -198,7 +214,9 @@ const About = () => {
                 href={"https://www.linkedin.com/in/arpit-kumar-5a26201b4/"}
                 target="_blank"
               >
-                <button className="rounded-full bg-yellow-400 p-3 text-sm font-semibold text-black">
+                <button
+                  className={`rounded-full bg-yellow-400 p-3 text-sm font-semibold ${colorProp.color1}`}
+                >
                   LINKEDIN
                 </button>
               </Link>

@@ -8,6 +8,7 @@ interface Point {
 }
 
 interface InfoBoxProps {
+  darkMode: boolean;
   info: {
     id: number;
     logo?: StaticImageData;
@@ -20,8 +21,23 @@ interface InfoBoxProps {
 }
 
 const InfoBox = (props: InfoBoxProps) => {
+  const colorProp = props.darkMode
+    ? {
+        color1: "text-white",
+        color2: "text-gray-400",
+        backgroundColor: "bg-slate-800",
+        hoverBackgroundColor: "bg-slate-600",
+      }
+    : {
+        color1: "text-black",
+        color2: "text-gray-950",
+        backgroundColor: "bg-slate-300",
+        hoverBackgroundColor: "bg-slate-500",
+      };
   return (
-    <div className="hover:scale-104 rounded-md bg-slate-800  p-3 transition delay-75 duration-300 ease-in-out hover:-translate-y-1 hover:bg-slate-600">
+    <div
+      className={`hover:scale-104 rounded-md ${colorProp.backgroundColor} p-3 transition delay-75 duration-300 ease-in-out hover:-translate-y-1 hover:${colorProp.hoverBackgroundColor}`}
+    >
       <div className="flex flex-row">
         {props.info.logo && (
           <div className="mt-2">
@@ -38,19 +54,21 @@ const InfoBox = (props: InfoBoxProps) => {
               {props.info.time}
             </h3>
           </div>
-          <div className="my-1 text-white">
+          <div className={`my-1 ${colorProp.color1}`}>
             <h4 className="text-lg sm:text-2xl">{props.info.title}</h4>
           </div>
         </div>
       </div>
       <div>
-        <h5 className="text-1xl text-gray-400">{props.info.subTitle}</h5>
+        <h5 className={`text-1xl ${colorProp.color2}`}>
+          {props.info.subTitle}
+        </h5>
       </div>
-      <div className="mt-4 text-gray-400">
+      <div className={`mt-4 ${colorProp.color2}`}>
         <p>{props.info.description}</p>
       </div>
       {props.info.points.length !== 0 && (
-        <div className="mt-4 ps-4 text-gray-400">
+        <div className={`mt-4 ps-4 ${colorProp.color2}`}>
           <ol className="list-inside list-disc">
             {props.info.points.map((point) => {
               return (

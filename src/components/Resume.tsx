@@ -5,7 +5,7 @@ import Link from "next/link";
 import geekyants from "../images/geekyants.png";
 import cognizant from "../images/cognizant.png";
 
-const Resume = () => {
+const Resume = ({ darkMode }: { darkMode: boolean }) => {
   const experienceInfo = [
     {
       id: 1,
@@ -90,6 +90,18 @@ const Resume = () => {
     },
   ];
 
+  const colorProp = darkMode
+    ? {
+        color1: "text-white",
+        color2: "text-gray-400",
+        backgroundColor: "bg-slate-950",
+      }
+    : {
+        color1: "text-black",
+        color2: "text-gray-950",
+        backgroundColor: "bg-slate-200",
+      };
+
   return (
     <div className="w-full sm:w-4/6">
       <div className="w-full p-4">
@@ -97,6 +109,7 @@ const Resume = () => {
         <div className="relative text-white">
           <div>
             <Heading
+              textColor={colorProp.color1}
               title={"Resume"}
               titleSize={"text-5xl"}
               subtitle={"Resume"}
@@ -106,7 +119,7 @@ const Resume = () => {
             />
           </div>
         </div>
-        <div className="mt-6 text-gray-400">
+        <div className={`mt-6 ${colorProp.color2}`}>
           <p>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates
             eum optio libero delectus sit, cupiditate qui laudantium unde
@@ -117,23 +130,23 @@ const Resume = () => {
         </div>
         {/* Experience */}
         <div className="mt-12 w-full">
-          <div className="text-white">
+          <div className={colorProp.color1}>
             <h4 className="text-3xl font-bold">Experience</h4>
           </div>
           <div className="mt-2 grid w-full grid-cols-1 gap-4 xl:grid-cols-2">
             {experienceInfo.map((item) => {
-              return <InfoBox key={item.id} info={item} />;
+              return <InfoBox key={item.id} darkMode={darkMode} info={item} />;
             })}
           </div>
         </div>
         {/* Education */}
         <div className="mt-12">
-          <div className="text-white">
+          <div className={colorProp.color1}>
             <h4 className="text-3xl font-bold">Education</h4>
           </div>
           <div className="mt-2 grid w-full grid-cols-1 gap-4 xl:grid-cols-2">
             {educationInfo.map((item) => {
-              return <InfoBox key={item.id} info={item} />;
+              return <InfoBox key={item.id} darkMode={darkMode} info={item} />;
             })}
           </div>
         </div>
@@ -141,7 +154,7 @@ const Resume = () => {
           <Link href={"/cv.pdf"} download={"MyCV.pdf"} target="_blank">
             <button
               type="button"
-              className="rounded-full bg-yellow-400 p-3 text-base font-medium"
+              className={`rounded-full bg-yellow-400 p-3 text-base font-medium ${colorProp.color1}`}
             >
               Download CV
             </button>

@@ -3,26 +3,34 @@ import React from "react";
 export default function Drawer({
   children,
   isOpen,
+  darkMode,
   setIsOpen,
 }: {
   children: React.ReactNode;
   isOpen: boolean;
+  darkMode: boolean;
   setIsOpen: React.Dispatch<React.SetStateAction<boolean>>;
 }) {
+  const colorProp = darkMode
+    ? {
+        color: "text-white",
+        backgroundColor: "bg-slate-950",
+      }
+    : {
+        color: "text-black",
+        backgroundColor: "bg-slate-200",
+      };
   return (
     <main
-      className={
-        "fixed inset-0 z-10 transform overflow-hidden bg-black ease-in-out lg:hidden" +
-        (isOpen
-          ? " translate-x-0 bg-opacity-25 opacity-100 transition-opacity duration-500"
-          : " translate-x-full opacity-0 transition-all")
-      }
+      className={`fixed inset-0 z-10 transform overflow-hidden ${colorProp.backgroundColor} ease-in-out lg:hidden ${
+        isOpen
+          ? "translate-x-0 bg-opacity-25 opacity-100 transition-opacity duration-500"
+          : "translate-x-full opacity-0 transition-all"
+      }`}
     >
       <section
-        className={
-          " delay-400 absolute right-0 h-full w-screen max-w-lg transform bg-black text-white shadow-xl transition-all duration-500 ease-in-out  " +
-          (isOpen ? " translate-x-0 " : " translate-x-full ")
-        }
+        className={`delay-400 absolute right-0 h-full w-screen max-w-lg transform ${colorProp.backgroundColor} ${colorProp.color} shadow-xl transition-all  duration-500 ease-in-out
+          ${isOpen ? "translate-x-0" : "translate-x-full"}`}
       >
         <article className="relative flex h-full w-screen max-w-lg flex-col space-y-6 overflow-y-scroll pb-10">
           <header className="flex items-center justify-between p-4">

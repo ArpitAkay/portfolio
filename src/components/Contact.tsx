@@ -1,20 +1,21 @@
 import React from "react";
 import Heading from "./Heading";
 import ContactItem from "./ContactItem";
-import github from "../svg/github.svg";
+import github_bg_slate from "../svg/github-bg-slate.svg";
+import github_bg_white from "../svg/github-bg-white.svg";
 import linkedin from "../svg/linkedin.svg";
 import twitter from "../svg/twitterx.svg";
 import instagram from "../svg/instagram.svg";
 import facebook from "../svg/facebook.svg";
 import Link from "next/link";
 
-const Contact = () => {
+const Contact = ({ darkMode }: { darkMode: boolean }) => {
   const socialMedia = [
     {
       id: 1,
       name: "github",
       link: "https://github.com/ArpitAkay",
-      svg: github.src,
+      svg: darkMode ? github_bg_slate.src : github_bg_white.src,
     },
     {
       id: 2,
@@ -42,11 +43,24 @@ const Contact = () => {
     },
   ];
 
+  const colorProp = darkMode
+    ? {
+        color1: "text-white",
+        color2: "text-gray-400",
+        backgroundColor: "bg-slate-950",
+      }
+    : {
+        color1: "text-black",
+        color2: "text-gray-950",
+        backgroundColor: "bg-slate-200",
+      };
+
   return (
-    <div className="w-full text-white sm:w-4/6">
+    <div className={`${colorProp.color1} w-full sm:w-4/6`}>
       <div className="p-4">
         <div>
           <Heading
+            textColor={colorProp.color1}
             title={"Contact Me"}
             titleSize={"text-5xl"}
             subtitle={"Contact"}
@@ -60,7 +74,11 @@ const Contact = () => {
         </div>
         <div className="mt-8">
           <div className="grid grid-cols-2 gap-4 md:grid-cols-2 lg:grid-cols-4">
-            <ContactItem title={"ADDRESS"} info={"Bengaluru, India"}>
+            <ContactItem
+              darkMode={darkMode}
+              title={"ADDRESS"}
+              info={"Bengaluru, India"}
+            >
               <svg
                 className="h-full w-full p-4 text-white"
                 fill="none"
@@ -81,7 +99,11 @@ const Contact = () => {
                 />
               </svg>
             </ContactItem>
-            <ContactItem title={"CONTACT NUMBER"} info={"+916397473077"}>
+            <ContactItem
+              darkMode={darkMode}
+              title={"CONTACT NUMBER"}
+              info={"+916397473077"}
+            >
               <svg
                 className="h-full w-full p-4 text-white"
                 width="24"
@@ -99,6 +121,7 @@ const Contact = () => {
               </svg>
             </ContactItem>
             <ContactItem
+              darkMode={darkMode}
               title={"EMAIL ADDRESS"}
               info={"arpitkumar4000@gmail.com"}
             >
@@ -120,7 +143,11 @@ const Contact = () => {
                 <line x1="8" y1="13" x2="14" y2="13" />
               </svg>
             </ContactItem>
-            <ContactItem title={"DOWNLOAD RESUME"} info={"Resume Link"}>
+            <ContactItem
+              darkMode={darkMode}
+              title={"DOWNLOAD RESUME"}
+              info={"Resume Link"}
+            >
               <svg
                 className=" h-full w-full p-4 text-white"
                 fill="none"
@@ -143,8 +170,10 @@ const Contact = () => {
               <h4 className="my-2 me-4 text-3xl font-light">
                 Have a question?
               </h4>
-              <button className="my-2 rounded-full bg-yellow-400 px-3 py-2 font-medium text-black">
-                Click Here
+              <button
+                className={`my-2 rounded-full bg-yellow-400 px-3 py-2 font-medium ${darkMode ? "text-black" : "text-white"}`}
+              >
+                Ask Me
               </button>
             </div>
           </div>
@@ -152,7 +181,9 @@ const Contact = () => {
         <div className="mt-8">
           <div className="flex flex-row justify-center">
             <div className="me-2 flex flex-row items-center">
-              <p className="text-base text-gray-400 lg:text-lg xl:text-xl 2xl:text-2xl">
+              <p
+                className={`text-base ${colorProp.color2} lg:text-lg xl:text-xl 2xl:text-2xl`}
+              >
                 Find me on
               </p>
             </div>
@@ -160,11 +191,15 @@ const Contact = () => {
               {socialMedia.map((item) => {
                 return (
                   <div
-                    className="h-10 w-10 transform transition duration-200 ease-in-out hover:scale-125 lg:h-12 lg:w-12 xl:h-14 xl:w-14 2xl:h-16 2xl:w-16"
+                    className="transform transition duration-200 ease-in-out hover:scale-125"
                     key={item.id}
                   >
                     <Link href={item.link} target="_blank">
-                      <img src={item.svg} alt={item.name} />
+                      <img
+                        className="h-10 w-10 rounded-full lg:h-12 lg:w-12 xl:h-14 xl:w-14 2xl:h-16 2xl:w-16"
+                        src={item.svg}
+                        alt={item.name}
+                      />
                     </Link>
                   </div>
                 );

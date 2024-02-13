@@ -8,7 +8,9 @@ const config: Config = {
   ],
   theme: {
     extend: {
-      backgroundImage: {},
+      backgroundImage: {
+        "version-control": "url('/src/svg/version_control.svg')",
+      },
     },
   },
   plugins: [],

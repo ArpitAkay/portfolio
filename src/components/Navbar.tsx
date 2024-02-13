@@ -5,16 +5,30 @@ import Drawer from "./Drawer";
 
 interface NavbarProps {
   handleNavbarClick: (val: string) => void;
+  darkMode: boolean;
+  setDarkMode: (val: boolean) => void;
 }
 
 const Navbar = (props: NavbarProps) => {
   const [isOpen, setIsOpen] = React.useState<boolean>(false);
+  const colorProp = props.darkMode
+    ? {
+        color: "text-white",
+        backgroundColor: "bg-slate-950",
+      }
+    : {
+        color: "text-black",
+        backgroundColor: "bg-slate-200",
+      };
   return (
-    <nav className="h-full w-full text-white">
-      <div className="flex h-full w-full justify-center text-white">
+    <nav
+      className={`h-full w-full transition-colors ${colorProp.backgroundColor} ${colorProp.color}`}
+    >
+      <div className="flex h-full w-full justify-center">
         <div className="flex w-4/6 items-center justify-between">
-          <div className="h-1/2 text-3xl">
+          <button className="h-1/2 text-3xl">
             <svg
+              onClick={() => props.handleNavbarClick("Home")}
               width="100%"
               height="100%"
               viewBox="0 0 164.2 37.92"
@@ -25,13 +39,13 @@ const Navbar = (props: NavbarProps) => {
                 strokeLinecap="round"
                 fillRule="evenodd"
                 fontSize="9pt"
-                stroke="#fffefe"
+                stroke={props.darkMode ? "#fffefe" : "#000000"}
                 strokeWidth="0.25mm"
-                fill="#ffffff"
+                fill={props.darkMode ? "#fffefe" : "#000000"}
                 style={{
-                  stroke: "#fffefe",
+                  stroke: props.darkMode ? "#fffefe" : "#000000",
                   strokeWidth: "0.25mm",
-                  fill: "#ffffff",
+                  fill: props.darkMode ? "#fffefe" : "#000000",
                 }}
               >
                 <path
@@ -40,69 +54,124 @@ const Navbar = (props: NavbarProps) => {
                 />
               </g>
             </svg>
-          </div>
-          {/* Web */}
-          <div className="float-right hidden text-lg text-white lg:block 2xl:text-4xl">
-            <button
-              className="mx-2 decoration-yellow-400 decoration-2 hover:underline 2xl:decoration-4"
-              onClick={() => props.handleNavbarClick("Home")}
-              name="Home"
-            >
-              Home
-            </button>
-            <button
-              className="mx-2 decoration-yellow-400 decoration-2 hover:underline 2xl:decoration-4"
-              onClick={() => props.handleNavbarClick("About")}
-              name="About"
-            >
-              About
-            </button>
-            <button
-              className="mx-2 decoration-yellow-400 decoration-2 hover:underline 2xl:decoration-4"
-              onClick={() => props.handleNavbarClick("Resume")}
-              name="Resume"
-            >
-              Resume
-            </button>
-            <button
-              className="mx-2 decoration-yellow-400 decoration-2 hover:underline 2xl:decoration-4"
-              onClick={() => props.handleNavbarClick("Projects")}
-              name="Projects"
-            >
-              Projects
-            </button>
-            <button
-              className="mx-2 decoration-yellow-400 decoration-2 hover:underline 2xl:decoration-4"
-              onClick={() => props.handleNavbarClick("Contact")}
-              name="Contact"
-            >
-              Contact
-            </button>
-          </div>
-          {/* Mobile */}
-          <div className="block lg:hidden">
-            <button
-              type="button"
-              onClick={() => setIsOpen(!isOpen)}
-              data-modal-target="default-modal"
-              data-modal-toggle="default-modal"
-            >
-              <svg
-                className="h-8 w-8 text-white"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
+          </button>
+          <div className="flex flex-row">
+            {/* Web */}
+            <div className="hidden text-lg font-semibold lg:block 2xl:text-3xl">
+              <button
+                className="mx-2 decoration-yellow-400 decoration-2 hover:underline 2xl:decoration-4"
+                onClick={() => props.handleNavbarClick("Home")}
+                name="Home"
               >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="M4 6h16M4 12h16m-7 6h7"
-                />
-              </svg>
-            </button>
+                Home
+              </button>
+              <button
+                className="mx-2 decoration-yellow-400 decoration-2 hover:underline 2xl:decoration-4"
+                onClick={() => props.handleNavbarClick("About")}
+                name="About"
+              >
+                About
+              </button>
+              <button
+                className="mx-2 decoration-yellow-400 decoration-2 hover:underline 2xl:decoration-4"
+                onClick={() => props.handleNavbarClick("Resume")}
+                name="Resume"
+              >
+                Resume
+              </button>
+              <button
+                className="mx-2 decoration-yellow-400 decoration-2 hover:underline 2xl:decoration-4"
+                onClick={() => props.handleNavbarClick("Projects")}
+                name="Projects"
+              >
+                Projects
+              </button>
+              <button
+                className="mx-2 decoration-yellow-400 decoration-2 hover:underline 2xl:decoration-4"
+                onClick={() => props.handleNavbarClick("Contact")}
+                name="Contact"
+              >
+                Contact
+              </button>
+            </div>
+            <div className="me-2 flex items-center">
+              {!props.darkMode && (
+                <button
+                  className="mx-2"
+                  onClick={() => props.setDarkMode(true)}
+                >
+                  <svg
+                    className={`h-6 w-6 2xl:h-10 2xl:w-10 ${colorProp.color} opacity-75`}
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  >
+                    {" "}
+                    <circle cx="12" cy="12" r="5" />{" "}
+                    <line x1="12" y1="1" x2="12" y2="3" />{" "}
+                    <line x1="12" y1="21" x2="12" y2="23" />{" "}
+                    <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" />{" "}
+                    <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" />{" "}
+                    <line x1="1" y1="12" x2="3" y2="12" />{" "}
+                    <line x1="21" y1="12" x2="23" y2="12" />{" "}
+                    <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" />{" "}
+                    <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
+                  </svg>
+                </button>
+              )}
+              {props.darkMode && (
+                <button
+                  className="mx-2"
+                  onClick={() => props.setDarkMode(false)}
+                >
+                  <svg
+                    className="h-6 w-6 text-white opacity-75 2xl:h-10 2xl:w-10"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  >
+                    {" "}
+                    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+                  </svg>
+                </button>
+              )}
+            </div>
+            {/* Mobile */}
+            <div className="block lg:hidden">
+              <button
+                type="button"
+                onClick={() => setIsOpen(!isOpen)}
+                data-modal-target="default-modal"
+                data-modal-toggle="default-modal"
+              >
+                <svg
+                  className={`h-8 w-8 ${colorProp.color}`}
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
+                    d="M4 6h16M4 12h16m-7 6h7"
+                  />
+                </svg>
+              </button>
+            </div>
           </div>
-          <Drawer isOpen={isOpen} setIsOpen={setIsOpen}>
+
+          <Drawer
+            isOpen={isOpen}
+            setIsOpen={setIsOpen}
+            darkMode={props.darkMode}
+          >
             <div>
               <button
                 className="w-full py-2 text-white decoration-yellow-400 decoration-2 hover:underline"

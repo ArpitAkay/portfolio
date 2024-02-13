@@ -14,16 +14,32 @@ interface descriptionItem {
 }
 
 interface SkillItemProps {
+  darkMode: boolean;
   title: string;
   skillSvg: skillSvgItem[];
   description: descriptionItem[];
 }
 
 const SkillItem = (props: SkillItemProps) => {
+  const colorProp = props.darkMode
+    ? {
+        color1: "text-white",
+        color2: "text-gray-400",
+        backgroundColor: "bg-slate-800",
+        hoverBackgroundColor: "bg-slate-600",
+      }
+    : {
+        color1: "text-black",
+        color2: "text-gray-950",
+        backgroundColor: "bg-slate-300",
+        hoverBackgroundColor: "bg-slate-500",
+      };
   return (
-    <div className="hover:scale-104 rounded-md bg-slate-800 p-2 transition delay-75 duration-300 ease-in-out hover:-translate-y-1 hover:bg-slate-600">
+    <div
+      className={`hover:scale-104 rounded-md ${colorProp.backgroundColor} p-2 transition delay-75 duration-300 ease-in-out hover:-translate-y-1 hover:${colorProp.hoverBackgroundColor}`}
+    >
       <div>
-        <h4 className="text-2xl text-white">{props.title}</h4>
+        <h4 className={`text-2xl ${colorProp.color1}`}>{props.title}</h4>
       </div>
       <div className="mt-2 grid grid-cols-5 gap-2 sm:grid-cols-7 md:grid-cols-9 lg:grid-cols-9 xl:grid-cols-7 2xl:grid-cols-9">
         {props.skillSvg.map((item) => {
@@ -43,7 +59,7 @@ const SkillItem = (props: SkillItemProps) => {
           );
         })}
       </div>
-      <div className="mt-4 p-2 text-base text-gray-400">
+      <div className={`mt-4 p-2 text-base ${colorProp.color2}`}>
         <ol className="list-inside list-disc">
           {props.description.map((item) => {
             return (

@@ -1,3 +1,10 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.transition-colors {
+    transition-property: background-color, color;
+    transition-duration: 1s;
+    transition-timing-function: ease;
+  }
+  

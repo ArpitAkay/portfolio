@@ -7,7 +7,7 @@ import blogapp from "../images/blogapp.webp";
 import chatapp from "../images/chatapp.png";
 import tmdb from "../images/tmdb.png";
 
-const Projects = () => {
+const Projects = ({ darkMode }: { darkMode: boolean }) => {
   const projectData = [
     {
       id: 1,
@@ -30,8 +30,7 @@ const Projects = () => {
       image: blogapp.src,
       description:
         "Developed a full-stack blog application using React, Redux, and Bootstrap for the frontend, complemented by a Spring Boot backend. The application incorporates key features like user authentication, blog creation, deletion, editing, publishing, unpublishing, and an efficient search function.",
-      frontend: "https://github.com/ArpitAkay/blogvista-react",
-      backend: "https://github.com/ArpitAkay/blogvista-springboot",
+      github: "https://github.com/ArpitAkay/blogvista-react",
     },
     {
       id: 4,
@@ -39,8 +38,7 @@ const Projects = () => {
       image: chatapp.src,
       description:
         "Built a full-stack chat application featuring React, Redux, and Material UI for the frontend, and Spring Boot for the backend. The application enables private user interactions using Stomp over WebSockets and SockJS.",
-      frontend: "https://github.com/ArpitAkay/chatapp-react",
-      backend: "https://github.com/ArpitAkay/chatapp-springboot",
+      github: "https://github.com/ArpitAkay/chatapp-react",
     },
     {
       id: 5,
@@ -48,16 +46,31 @@ const Projects = () => {
       image: tmdb.src,
       description:
         "Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptasperspiciatis laudantium nobis pariatur expedita laboriosam dolores repellendus accusantium similique atque.",
-      frontend: "https://github.com/ArpitAkay/tmdb",
+      github: "https://github.com/ArpitAkay/tmdb",
       live: "https://akay-tmdb.vercel.app/",
     },
   ];
+
+  const colorProp = darkMode
+    ? {
+        color1: "text-white",
+        color2: "text-gray-400",
+        backgroundColor: "bg-slate-800",
+        hoverBackgroundColor: "bg-slate-600",
+      }
+    : {
+        color1: "text-black",
+        color2: "text-gray-950",
+        backgroundColor: "bg-slate-300",
+        hoverBackgroundColor: "bg-slate-500",
+      };
 
   return (
     <div className="w-full sm:w-4/6">
       <div className="w-full p-4">
         <div>
           <Heading
+            textColor={colorProp.color1}
             title={"Projects"}
             titleSize={"text-5xl"}
             subtitle={"Projects"}
@@ -68,7 +81,9 @@ const Projects = () => {
         </div>
         <div className="mt-24 grid grid-cols-1 gap-4 lg:grid-cols-2 2xl:grid-cols-3">
           {projectData.map((item) => {
-            return <ProjectItem key={item.id} data={item} />;
+            return (
+              <ProjectItem key={item.id} darkMode={darkMode} data={item} />
+            );
           })}
         </div>
       </div>

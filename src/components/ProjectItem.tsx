@@ -2,6 +2,13 @@ import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 import { Tooltip, Zoom } from "@mui/material";
+import { motion } from "framer-motion";
+
+interface TechStack {
+  id: number;
+  svg: string;
+  name: string;
+}
 
 interface projectItemProps {
   darkMode: boolean;
@@ -12,46 +19,89 @@ interface projectItemProps {
     description: string;
     github?: string;
     live?: string;
+    techStack: TechStack[];
   };
 }
 
 const ProjectItem = (props: projectItemProps) => {
+  const [isHovered, setIsHovered] = React.useState(false);
   const colorProp = props.darkMode
     ? {
-        color1: "text-white",
-        color2: "text-gray-400",
-        backgroundColor: "bg-slate-800",
-        hoverBackgroundColor: "bg-slate-600",
+        textColor1: "text-white",
+        textColor2: "text-gray-400",
+        bgColor: "bg-slate-800",
+        hoverBgColor: "bg-slate-600",
       }
     : {
-        color1: "text-black",
-        color2: "text-gray-950",
-        backgroundColor: "bg-slate-300",
-        hoverBackgroundColor: "bg-slate-500",
+        textColor1: "text-black",
+        textColor2: "text-gray-950",
+        bgColor: "bg-slate-300",
+        hoverBgColor: "bg-slate-500",
       };
 
   return (
     <div
-      className={`hover:scale-104 flex flex-col rounded-md ${colorProp.backgroundColor} transition delay-75 duration-300 ease-in-out hover:-translate-y-1 hover:${colorProp.hoverBackgroundColor}`}
+      className={`hover:scale-104 flex flex-col rounded-md ${colorProp.bgColor} transition delay-75 duration-300 ease-in-out hover:-translate-y-1 hover:${colorProp.hoverBgColor}`}
     >
       <div>
-        <div className="relative h-72">
+        <div
+          className="relative h-64"
+          onMouseEnter={() => setIsHovered(true)}
+          onMouseLeave={() => setIsHovered(false)}
+        >
           <Image src={props.data.image} alt="project" fill={true} />
+
+          {isHovered && (
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.3 }}
+              className="absolute left-0 top-0 h-full w-full bg-white bg-opacity-95"
+            >
+              <div className="flex h-full w-full items-center justify-center">
+                <div className="grid grid-cols-5 gap-2 p-2">
+                  {props.data.techStack.map((tech) => {
+                    return (
+                      <Tooltip
+                        key={tech.id}
+                        title={tech.name}
+                        arrow
+                        enterTouchDelay={100}
+                      >
+                        <Image
+                          src={tech.svg}
+                          height={50}
+                          width={50}
+                          alt={tech.name}
+                        />
+                      </Tooltip>
+                    );
+                  })}
+                </div>
+              </div>
+            </motion.div>
+          )}
         </div>
         <div className="my-4 flex flex-col p-2 ">
-          <h3 className={`text-2xl font-medium ${colorProp.color1}`}>
+          <h3
+            className={`text-xl font-medium 2xl:text-2xl ${colorProp.textColor1}`}
+          >
             {props.data.title}
           </h3>
-          <p className={`mt-2 ${colorProp.color2}`}>{props.data.description}</p>
+          <p
+            className={`mt-2 text-sm lg:text-lg 2xl:text-xl ${colorProp.textColor2}`}
+          >
+            {props.data.description}
+          </p>
         </div>
       </div>
       <div className="mt-auto flex flex-row justify-end p-2">
         {props.data.live && (
-          <Tooltip title="Live" arrow TransitionComponent={Zoom}>
+          <Tooltip title="Live" arrow>
             <Link href={props.data.live} target="_blank" className="mx-1">
               <button type="button">
                 <svg
-                  className={`h-8 w-8 ${colorProp.color1}`}
+                  className={`h-8 w-8 ${colorProp.textColor1}`}
                   width="24"
                   height="24"
                   viewBox="0 0 24 24"
@@ -76,7 +126,7 @@ const ProjectItem = (props: projectItemProps) => {
             <Link href={props.data.github} target="_blank">
               <button type="button" className="mx-1">
                 <svg
-                  className={`h-8 w-8 ${colorProp.color1}`}
+                  className={`h-8 w-8 ${colorProp.textColor1}`}
                   width="24"
                   height="24"
                   viewBox="0 0 24 24"

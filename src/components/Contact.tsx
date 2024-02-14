@@ -8,6 +8,7 @@ import twitter from "../svg/twitterx.svg";
 import instagram from "../svg/instagram.svg";
 import facebook from "../svg/facebook.svg";
 import Link from "next/link";
+import Image from "next/image";
 
 const Contact = ({ darkMode }: { darkMode: boolean }) => {
   const socialMedia = [
@@ -193,8 +194,9 @@ const Contact = ({ darkMode }: { darkMode: boolean }) => {
                     key={item.id}
                   >
                     <Link href={item.link} target="_blank">
-                      <img
-                        className="h-10 w-10 rounded-full lg:h-12 lg:w-12 xl:h-14 xl:w-14 2xl:h-16 2xl:w-16"
+                      <Image
+                        width={50}
+                        height={50}
                         src={item.svg}
                         alt={item.name}
                       />

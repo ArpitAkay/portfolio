@@ -1,5 +1,5 @@
 import { Tooltip, Zoom } from "@mui/material";
-import shadows from "@mui/material/styles/shadows";
+import Image from "next/image";
 import React from "react";
 
 interface skillSvgItem {
@@ -36,7 +36,7 @@ const SkillItem = (props: SkillItemProps) => {
         textColor2: "text-slate-500",
         textColor3: "text-black",
         bgColor: "bg-slate-300",
-        hoverBgColor: "bg-black",
+        hoverBgColor: "bg-slate-950",
         svgBgColor: "bg-white",
         shadow: "shadow-md",
       };
@@ -56,9 +56,11 @@ const SkillItem = (props: SkillItemProps) => {
               className="h-12 w-12 transform transition duration-300 ease-in-out hover:scale-125 2xl:h-12 2xl:w-12"
               key={item.id}
             >
-              <Tooltip title={item.name} arrow TransitionComponent={Zoom}>
-                <img
+              <Tooltip title={item.name} arrow enterTouchDelay={0}>
+                <Image
                   className={`h-full w-full rounded-md ${colorProp.svgBgColor} p-1`}
+                  width={50}
+                  height={50}
                   src={item.svg}
                   alt={item.name}
                 />

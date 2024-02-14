@@ -3,9 +3,23 @@ import ProjectItem from "./ProjectItem";
 import Heading from "./Heading";
 import customercare from "../images/customercare.jpg";
 import riddeapp from "../images/riddeapp.jpg";
-import blogapp from "../images/blogapp.webp";
-import chatapp from "../images/chatapp.png";
-import tmdb from "../images/tmdb.png";
+import blogapp from "../images/blogapp.jpg";
+import chatapp from "../images/chatapp.jpg";
+import tmdb from "../images/tmdb.jpg";
+import springboot from "../svg/springboot.svg";
+import nodejs from "../svg/nodejs.svg";
+import mongodb from "../svg/mongodb.svg";
+import redis from "../svg/redis.svg";
+import azure from "../svg/azure.svg";
+import mysql from "../svg/mysql.svg";
+import firebase from "../svg/firebase.svg";
+import jwt from "../svg/jwt.svg";
+import websocket from "../images/websocket.png";
+import react from "../svg/react.svg";
+import bootstrap from "../svg/bootstrap.svg";
+import redux from "../svg/redux.svg";
+import typescript from "../svg/typescript.svg";
+import tailwind from "../svg/tailwind-css.svg";
 
 const Projects = ({ darkMode }: { darkMode: boolean }) => {
   const projectData = [
@@ -15,6 +29,33 @@ const Projects = ({ darkMode }: { darkMode: boolean }) => {
       image: customercare.src,
       description:
         "As a backend developer, I contributed to a project using Spring Boot and Node.js. My role involved implementing APIs for customer-agent interactions via calls and chats, focusing on call management, chat features, and statistical tracking. I also worked on a pub/sub model for efficient communication between system components.",
+      techStack: [
+        {
+          id: 1,
+          name: "Springboot",
+          svg: springboot.src,
+        },
+        {
+          id: 2,
+          name: "NodeJS",
+          svg: nodejs.src,
+        },
+        {
+          id: 3,
+          name: "MongoDB",
+          svg: mongodb.src,
+        },
+        {
+          id: 4,
+          name: "Redis",
+          svg: redis.src,
+        },
+        {
+          id: 5,
+          name: "Azur DevOps",
+          svg: azure,
+        },
+      ],
     },
     {
       id: 2,
@@ -23,6 +64,33 @@ const Projects = ({ darkMode }: { darkMode: boolean }) => {
       description:
         "Developed the backend for a motorcycle taxi app, providing users with a hassle-free way to navigate city traffic. The app features Ride Now for instant bookings, Ride Later for scheduled rides, and Package Delivery for secure pickup and drop-offs.",
       live: "https://geekyants.com/customizable-app/build-custom-taxi-booking-app/",
+      techStack: [
+        {
+          id: 1,
+          name: "Springboot",
+          svg: springboot.src,
+        },
+        {
+          id: 2,
+          name: "MySQL",
+          svg: mysql.src,
+        },
+        {
+          id: 3,
+          name: "Firebase Cloud Messaging",
+          svg: firebase.src,
+        },
+        {
+          id: 4,
+          name: "Json Web Token",
+          svg: jwt.src,
+        },
+        {
+          id: 5,
+          name: "WebSocket",
+          svg: websocket.src,
+        },
+      ],
     },
     {
       id: 3,
@@ -31,6 +99,33 @@ const Projects = ({ darkMode }: { darkMode: boolean }) => {
       description:
         "Developed a full-stack blog application using React, Redux, and Bootstrap for the frontend, complemented by a Spring Boot backend. The application incorporates key features like user authentication, blog creation, deletion, editing, publishing, unpublishing, and an efficient search function.",
       github: "https://github.com/ArpitAkay/blogvista-react",
+      techStack: [
+        {
+          id: 1,
+          name: "React",
+          svg: react.src,
+        },
+        {
+          id: 2,
+          name: "Bootstrap",
+          svg: bootstrap.src,
+        },
+        {
+          id: 3,
+          name: "Redux",
+          svg: redux.src,
+        },
+        {
+          id: 4,
+          name: "Springboot",
+          svg: springboot.src,
+        },
+        {
+          id: 5,
+          name: "MySQL",
+          svg: mysql.src,
+        },
+      ],
     },
     {
       id: 4,
@@ -39,15 +134,59 @@ const Projects = ({ darkMode }: { darkMode: boolean }) => {
       description:
         "Built a full-stack chat application featuring React, Redux, and Material UI for the frontend, and Spring Boot for the backend. The application enables private user interactions using Stomp over WebSockets and SockJS.",
       github: "https://github.com/ArpitAkay/chatapp-react",
+      techStack: [
+        {
+          id: 1,
+          name: "React",
+          svg: react.src,
+        },
+        {
+          id: 2,
+          name: "TypeScript",
+          svg: typescript.src,
+        },
+        {
+          id: 3,
+          name: "Redux",
+          svg: redux.src,
+        },
+        {
+          id: 4,
+          name: "Material UI",
+          svg: "https://mui.com/static/logo.png",
+        },
+        {
+          id: 5,
+          name: "Springboot",
+          svg: springboot.src,
+        },
+        {
+          id: 6,
+          name: "MySQL",
+          svg: mysql.src,
+        },
+      ],
     },
     {
       id: 5,
       title: "The Movie Database",
       image: tmdb.src,
       description:
-        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptasperspiciatis laudantium nobis pariatur expedita laboriosam dolores repellendus accusantium similique atque.",
+        "Developed frontend for a movie database using NextJS and TailwindCSS. The application fetches data from the TMDB API and displays it in a user-friendly manner. The application features a search function, popular movie and movie details",
       github: "https://github.com/ArpitAkay/tmdb",
       live: "https://akay-tmdb.vercel.app/",
+      techStack: [
+        {
+          id: 1,
+          name: "NextJS",
+          svg: "https://cdn.worldvectorlogo.com/logos/nextjs-2.svg",
+        },
+        {
+          id: 2,
+          name: "TailwindCSS",
+          svg: tailwind.src,
+        },
+      ],
     },
   ];
 

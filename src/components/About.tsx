@@ -172,7 +172,7 @@ const About = ({ darkMode }: { darkMode: boolean }) => {
           </div>
           <div className="mt-8 2xl:mt-12">
             <p
-              className={`text-sm lg:text-lg 2xl:text-xl ${colorProp.textColor1} text-justify`}
+              className={`text-sm lg:text-lg 2xl:text-xl ${colorProp.textColor1}`}
             >
               I’m a backend developer specializing in Java and Spring Boot. I
               excel in building REST and GraphQL APIs, emphasizing efficient

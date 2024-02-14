@@ -15,7 +15,7 @@ const Heading = (props: HeadingProps) => {
         {props.title}
       </h1>
       <h1
-        className={`absolute ${props.top} ${props.left} text-6xl font-extrabold opacity-10 md:text-7xl 2xl:text-8xl`}
+        className={`absolute ${props.top} ${props.left} text-5xl font-extrabold opacity-10 md:text-7xl 2xl:text-8xl`}
       >
         {props.subtitle}
       </h1>

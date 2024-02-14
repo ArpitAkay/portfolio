@@ -18,11 +18,11 @@ const PercentageBar = (props: PercentageBarProps) => {
       </div>
       <div className="mt-1 flex w-full flex-row">
         <div
-          className={`h-3  ${props.color}`}
+          className={`h-3  ${props.color} rounded-l-md`}
           style={{ width: `${filledWidth}%` }}
         ></div>
         <div
-          className={`h-3 bg-slate-400`}
+          className={`h-3 rounded-r-md bg-slate-400`}
           style={{ width: `${emptyWidth}%` }}
         ></div>
       </div>

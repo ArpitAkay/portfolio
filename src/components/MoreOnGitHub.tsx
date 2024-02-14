@@ -21,13 +21,11 @@ const MoreOnGitHub = ({ darkMode }: { darkMode: boolean }) => {
           >
             More projects on <span className="text-yellow-400">Github</span>
           </h2>
-          {/* <div className="flex flex-row items-center justify-center text-center"> */}
           <p
             className={`mt-3 text-center text-sm font-medium ${colorProp.color} sm:text-base md:text-lg lg:text-xl xl:text-2xl`}
           >
             I love to solve business problems & uncover hidden data stories
           </p>
-          {/* </div> */}
           <div className="mt-6">
             <Link href={"https://github.com/ArpitAkay"} target="_blank">
               <button

@@ -1,5 +1,5 @@
 import React from "react";
-import { StaticImageData } from "next/image";
+import Image, { StaticImageData } from "next/image";
 
 interface Point {
   id: number;
@@ -42,9 +42,11 @@ const InfoBox = (props: InfoBoxProps) => {
       <div className="flex flex-row">
         {props.info.logo && (
           <div className="mt-2">
-            <img
+            <Image
               src={props.info.logo.src}
-              className="h-14 w-14 rounded-full"
+              width={56}
+              height={56}
+              style={{ borderRadius: "100%" }}
               alt={props.info.subTitle}
             />
           </div>

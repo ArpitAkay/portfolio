@@ -6,12 +6,13 @@ import Navbar from "@/components/Navbar";
 import Resume from "@/components/Resume";
 import Projects from "@/components/Projects";
 import MoreOnGitHub from "@/components/MoreOnGitHub";
-import source_code from "../svg/source_code.svg";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 import React, { useRef, useState } from "react";
 import { motion } from "framer-motion";
 import Skills from "@/components/Skills";
+import Experience from "@/components/Experience";
+import Education from "@/components/Education";
 
 export default function Home() {
   const sectionRef = useRef<HTMLDivElement | null>(null);
@@ -35,14 +36,21 @@ export default function Home() {
       }
       case "Skills": {
         sectionRef.current!.scrollTo({
-          top: document.getElementById("what-i-do")!.offsetTop - 140,
+          top: document.getElementById("skills")!.offsetTop - 140,
           behavior: "smooth",
         });
         break;
       }
-      case "Resume": {
+      case "Experience": {
         sectionRef.current!.scrollTo({
-          top: document.getElementById("resume")!.offsetTop - 140,
+          top: document.getElementById("experience")!.offsetTop - 140,
+          behavior: "smooth",
+        });
+        break;
+      }
+      case "Education": {
+        sectionRef.current!.scrollTo({
+          top: document.getElementById("education")!.offsetTop - 140,
           behavior: "smooth",
         });
         break;
@@ -69,7 +77,6 @@ export default function Home() {
   return (
     <div
       className={`h-svh w-svw overflow-y-scroll transition-colors ${darkMode ? "bg-slate-900" : "bg-slate-100"}`}
-      id="scrollableDiv"
       ref={sectionRef}
     >
       {/* Navbar */}
@@ -126,13 +133,13 @@ export default function Home() {
           opacity: 1,
         }}
         transition={{ type: "spring", stiffness: 50 }}
-        id="what-i-do"
+        id="skills"
         className="mt-4 flex w-full flex-row justify-center"
       >
         <Skills darkMode={darkMode} />
       </motion.section>
       {/* Resume */}
-      <motion.section
+      {/* <motion.section
         initial={{
           y: 200,
           opacity: 0,
@@ -146,6 +153,38 @@ export default function Home() {
         className="mt-4 flex w-full flex-row justify-center"
       >
         <Resume darkMode={darkMode} />
+      </motion.section> */}
+      {/* Experience */}
+      <motion.section
+        initial={{
+          y: 200,
+          opacity: 0,
+        }}
+        whileInView={{
+          y: 0,
+          opacity: 1,
+        }}
+        transition={{ type: "spring", stiffness: 50 }}
+        id="experience"
+        className="mt-4 flex w-full flex-row justify-center"
+      >
+        <Experience darkMode={darkMode} />
+      </motion.section>
+      {/* Education */}
+      <motion.section
+        initial={{
+          y: 200,
+          opacity: 0,
+        }}
+        whileInView={{
+          y: 0,
+          opacity: 1,
+        }}
+        transition={{ type: "spring", stiffness: 50 }}
+        id="education"
+        className="mt-4 flex w-full flex-row justify-center"
+      >
+        <Education darkMode={darkMode} />
       </motion.section>
       {/* Projects */}
       <motion.section
@@ -169,12 +208,7 @@ export default function Home() {
         whileInView={{ y: 0, opacity: 1 }}
         transition={{ type: "spring", stiffness: 50 }}
         id="more-on-github"
-        className="mt-40 flex w-full flex-row justify-center"
-        style={{
-          backgroundImage: `url(${source_code.src})`,
-          backgroundRepeat: "no-repeat",
-          backgroundPosition: "center",
-        }}
+        className="bg-source-code mt-40 flex w-full flex-row justify-center bg-center bg-no-repeat"
       >
         <MoreOnGitHub darkMode={darkMode} />
       </motion.section>

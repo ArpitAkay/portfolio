@@ -46,22 +46,25 @@ const Contact = ({ darkMode }: { darkMode: boolean }) => {
 
   const colorProp = darkMode
     ? {
-        color1: "text-white",
-        color2: "text-gray-400",
-        backgroundColor: "bg-slate-950",
+        textColor1: "text-white",
+        textColor2: "text-gray-400",
+
+        btnBgColor: "bg-yellow-400",
+        btnTextColor: "text-white",
       }
     : {
-        color1: "text-black",
-        color2: "text-gray-950",
-        backgroundColor: "bg-slate-200",
+        textColor1: "text-black",
+        textColor2: "text-gray-950",
+        btnBgColor: "bg-slate-500",
+        btnTextColor: "text-white",
       };
 
   return (
-    <div className={`${colorProp.color1} w-full sm:w-4/6`}>
+    <div className={`${colorProp.textColor1} w-full sm:w-4/6`}>
       <div className="p-4">
         <div>
           <Heading
-            textColor={colorProp.color1}
+            textColor={colorProp.textColor1}
             title={"Contact Me"}
             subtitle={"Contact"}
             top={"top-0"}
@@ -69,7 +72,9 @@ const Contact = ({ darkMode }: { darkMode: boolean }) => {
           />
         </div>
         <div className="mt-6">
-          <p>Below are the details to reach out to me! &#128515;</p>
+          <p className="text-sm lg:text-lg 2xl:text-2xl">
+            Below are the details to reach out to me! &#128515;
+          </p>
         </div>
         <div className="mt-8">
           <div className="grid grid-cols-2 gap-4 md:grid-cols-2 lg:grid-cols-4">
@@ -170,7 +175,7 @@ const Contact = ({ darkMode }: { darkMode: boolean }) => {
                 Have a question?
               </h4>
               <button
-                className={`my-2 rounded-full bg-yellow-400 px-3 py-2 font-medium ${darkMode ? "text-black" : "text-white"}`}
+                className={`my-2 rounded-full ${colorProp.btnBgColor} ${colorProp.btnTextColor} px-3 py-2 font-medium`}
               >
                 Ask Me
               </button>
@@ -181,7 +186,7 @@ const Contact = ({ darkMode }: { darkMode: boolean }) => {
           <div className="flex flex-row justify-center">
             <div className="me-2 flex flex-row items-center">
               <p
-                className={`text-base ${colorProp.color2} lg:text-lg xl:text-xl 2xl:text-2xl`}
+                className={`text-base ${colorProp.textColor2} lg:text-lg xl:text-xl 2xl:text-2xl`}
               >
                 Find me on
               </p>

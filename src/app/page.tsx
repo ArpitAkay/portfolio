@@ -208,7 +208,7 @@ export default function Home() {
         whileInView={{ y: 0, opacity: 1 }}
         transition={{ type: "spring", stiffness: 50 }}
         id="more-on-github"
-        className="bg-source-code mt-40 flex w-full flex-row justify-center bg-center bg-no-repeat"
+        className="bg-source-code mt-32 flex w-full flex-row justify-center bg-center bg-no-repeat"
       >
         <MoreOnGitHub darkMode={darkMode} />
       </motion.section>

@@ -41,11 +41,13 @@ const Education = ({ darkMode }: { darkMode: boolean }) => {
         textColor1: "text-white",
         textColor2: "text-gray-400",
         buttonBgColor: "bg-yellow-400",
+        btnTextColor: "text-black",
       }
     : {
         textColor1: "text-black",
         textColor2: "text-gray-950",
         buttonBgColor: "bg-slate-500",
+        btnTextColor: "text-white",
       };
 
   return (
@@ -75,7 +77,7 @@ const Education = ({ darkMode }: { darkMode: boolean }) => {
           <Link href={"/cv.pdf"} download={"MyCV.pdf"} target="_blank">
             <button
               type="button"
-              className={`rounded-full ${colorProp.buttonBgColor} ${colorProp.textColor1} p-3 text-base font-medium ${colorProp.textColor1}`}
+              className={`rounded-full ${colorProp.buttonBgColor}  p-3 text-base font-medium ${colorProp.btnTextColor}`}
             >
               Download CV
             </button>

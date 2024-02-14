@@ -186,7 +186,7 @@ const Contact = ({ darkMode }: { darkMode: boolean }) => {
           <div className="flex flex-row justify-center">
             <div className="me-2 flex flex-row items-center">
               <p
-                className={`text-base ${colorProp.textColor2} lg:text-lg xl:text-xl 2xl:text-2xl`}
+                className={`text-xs ${colorProp.textColor2} lg:text-lg xl:text-xl 2xl:text-2xl`}
               >
                 Find me on
               </p>

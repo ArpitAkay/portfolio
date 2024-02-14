@@ -51,7 +51,7 @@ const ContactItem = (props: ContactItemProps) => {
           </Link>
         )}
         {props.info !== "Resume Link" && (
-          <p className={`mt-2 text-sm  sm:text-xs ${colorProp.textColor2}`}>
+          <p className={`mt-2 text-sm sm:text-xs ${colorProp.textColor2}`}>
             {props.info}
           </p>
         )}

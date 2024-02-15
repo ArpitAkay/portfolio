@@ -56,7 +56,7 @@ const SkillItem = (props: SkillItemProps) => {
               className="h-12 w-12 transform transition duration-300 ease-in-out hover:scale-125 2xl:h-12 2xl:w-12"
               key={item.id}
             >
-              <Tooltip title={item.name} arrow enterTouchDelay={50}>
+              <Tooltip title={item.name} arrow enterTouchDelay={10}>
                 <Image
                   className={`h-full w-full rounded-md ${colorProp.svgBgColor} p-1`}
                   width={50}

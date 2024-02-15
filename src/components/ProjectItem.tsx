@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
-import { Tooltip, Zoom } from "@mui/material";
+import { Tooltip } from "@mui/material";
 import { motion } from "framer-motion";
 
 interface TechStack {
@@ -67,7 +67,7 @@ const ProjectItem = (props: ProjectItemProps) => {
                         key={tech.id}
                         title={tech.name}
                         arrow
-                        enterTouchDelay={100}
+                        enterTouchDelay={50}
                       >
                         <Image
                           src={tech.svg}
@@ -123,7 +123,7 @@ const ProjectItem = (props: ProjectItemProps) => {
           </Tooltip>
         )}
         {props.data.feGithub && (
-          <Tooltip title="FE Github" arrow TransitionComponent={Zoom}>
+          <Tooltip title="FE Github" arrow>
             <Link href={props.data.feGithub} target="_blank">
               <button type="button" className="mx-1">
                 <svg

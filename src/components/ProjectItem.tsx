@@ -67,7 +67,7 @@ const ProjectItem = (props: ProjectItemProps) => {
                         key={tech.id}
                         title={tech.name}
                         arrow
-                        enterTouchDelay={1}
+                        enterTouchDelay={10}
                       >
                         <Image
                           src={tech.svg}

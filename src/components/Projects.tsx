@@ -5,7 +5,7 @@ import customercare from "../images/customercare.jpg";
 import riddeapp from "../images/riddeapp.jpg";
 import blogapp from "../images/blogapp.jpg";
 import chatapp from "../images/chatapp.jpg";
-import tmdb from "../images/tmdb.jpg";
+import tmdb from "@/images/tmdb.jpg";
 import springboot from "../svg/springboot.svg";
 import nodejs from "../svg/nodejs.svg";
 import mongodb from "../svg/mongodb.svg";

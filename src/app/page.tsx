@@ -3,7 +3,6 @@
 import About from "@/components/About";
 import HomePage from "@/components/HomePage";
 import Navbar from "@/components/Navbar";
-import Resume from "@/components/Resume";
 import Projects from "@/components/Projects";
 import MoreOnGitHub from "@/components/MoreOnGitHub";
 import Contact from "@/components/Contact";

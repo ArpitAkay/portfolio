@@ -9,6 +9,8 @@ import instagram from "../svg/instagram.svg";
 import facebook from "../svg/facebook.svg";
 import Link from "next/link";
 import Image from "next/image";
+import ContactForm from "./ContactForm";
+import { motion } from "framer-motion";
 
 const Contact = ({ darkMode }: { darkMode: boolean }) => {
   const socialMedia = [
@@ -48,16 +50,19 @@ const Contact = ({ darkMode }: { darkMode: boolean }) => {
     ? {
         textColor1: "text-white",
         textColor2: "text-gray-400",
-
         btnBgColor: "bg-yellow-400",
         btnTextColor: "text-white",
+        outlineColor: "outline-yellow-400",
       }
     : {
         textColor1: "text-black",
         textColor2: "text-gray-950",
         btnBgColor: "bg-slate-500",
         btnTextColor: "text-white",
+        outlineColor: "outline-slate-500",
       };
+
+  const [openForm, setOpenForm] = React.useState<boolean>(false);
 
   return (
     <div className={`${colorProp.textColor1} w-full sm:w-4/6`}>
@@ -176,12 +181,29 @@ const Contact = ({ darkMode }: { darkMode: boolean }) => {
               </h4>
               <button
                 className={`my-2 rounded-full ${colorProp.btnBgColor} ${colorProp.btnTextColor} px-3 py-2 font-medium`}
+                onClick={() => setOpenForm(true)}
               >
                 Ask Me
               </button>
             </div>
           </div>
         </div>
+        {openForm && (
+          <motion.div
+            initial={{
+              y: 50,
+              opacity: 0,
+            }}
+            whileInView={{
+              y: 0,
+              opacity: 1,
+            }}
+            transition={{ type: "spring", stiffness: 50 }}
+            className="mt-8"
+          >
+            <ContactForm darkMode={darkMode} />
+          </motion.div>
+        )}
         <div className="mt-8">
           <div className="flex flex-row justify-center">
             <div className="me-2 flex flex-row items-center">

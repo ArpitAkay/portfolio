@@ -53,7 +53,7 @@ const Projects = ({ darkMode }: { darkMode: boolean }) => {
         {
           id: 5,
           name: "Azur DevOps",
-          svg: azure,
+          svg: azure.src,
         },
       ],
     },

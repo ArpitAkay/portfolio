@@ -49,7 +49,7 @@ const ProjectItem = (props: projectItemProps) => {
           onMouseEnter={() => setIsHovered(true)}
           onMouseLeave={() => setIsHovered(false)}
         >
-          <Image src={props.data.image} alt="project" fill={true} />
+          <Image src={props.data.image} alt={props.data.title} fill={true} />
 
           {isHovered && (
             <motion.div

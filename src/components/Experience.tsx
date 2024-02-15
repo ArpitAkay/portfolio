@@ -8,7 +8,7 @@ const Experience = ({ darkMode }: { darkMode: boolean }) => {
   const experienceInfo = [
     {
       id: 1,
-      logo: geekyants,
+      logo: geekyants.src,
       time: "July, 2022 - Present",
       title: "Software Engineer",
       subTitle: "GeekyAnts",
@@ -18,7 +18,7 @@ const Experience = ({ darkMode }: { darkMode: boolean }) => {
     },
     {
       id: 2,
-      logo: cognizant,
+      logo: cognizant.src,
       time: "March, 22 - June, 22",
       title: "Internship Trainee",
       subTitle: "Congizant",

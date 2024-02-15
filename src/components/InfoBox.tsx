@@ -10,7 +10,7 @@ interface InfoBoxProps {
   darkMode: boolean;
   info: {
     id: number;
-    logo?: StaticImageData;
+    logo?: string;
     time: string;
     title: string;
     subTitle: string;
@@ -43,7 +43,7 @@ const InfoBox = (props: InfoBoxProps) => {
         {props.info.logo && (
           <div className="mt-2">
             <Image
-              src={props.info.logo.src}
+              src={props.info.logo}
               width={56}
               height={56}
               style={{ borderRadius: "100%" }}

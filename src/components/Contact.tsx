@@ -12,7 +12,13 @@ import Image from "next/image";
 import ContactForm from "./ContactForm";
 import { motion } from "framer-motion";
 
-const Contact = ({ darkMode }: { darkMode: boolean }) => {
+const Contact = ({
+  darkMode,
+  handleNavbarClick,
+}: {
+  darkMode: boolean;
+  handleNavbarClick: (val: string) => void;
+}) => {
   const socialMedia = [
     {
       id: 1,
@@ -51,7 +57,7 @@ const Contact = ({ darkMode }: { darkMode: boolean }) => {
         textColor1: "text-white",
         textColor2: "text-gray-400",
         btnBgColor: "bg-yellow-400",
-        btnTextColor: "text-white",
+        btnTextColor: "text-black",
         outlineColor: "outline-yellow-400",
       }
     : {
@@ -76,7 +82,7 @@ const Contact = ({ darkMode }: { darkMode: boolean }) => {
             left={"left-0"}
           />
         </div>
-        <div className="mt-6">
+        <div className="mt-6 2xl:mt-12">
           <p className="text-sm lg:text-lg 2xl:text-2xl">
             Below are the details to reach out to me! &#128515;
           </p>
@@ -179,12 +185,19 @@ const Contact = ({ darkMode }: { darkMode: boolean }) => {
               <h4 className="my-2 me-4 text-3xl font-light">
                 Have a question?
               </h4>
-              <button
-                className={`my-2 rounded-full ${colorProp.btnBgColor} ${colorProp.btnTextColor} px-3 py-2 font-medium`}
-                onClick={() => setOpenForm(true)}
-              >
-                Ask Me
-              </button>
+              {!openForm && (
+                <button
+                  className={`my-2 rounded-full ${colorProp.btnBgColor} ${colorProp.btnTextColor} px-3 py-2 font-medium`}
+                  onClick={() => {
+                    setOpenForm(true);
+                    setTimeout(() => {
+                      handleNavbarClick("ContactForm");
+                    }, 50);
+                  }}
+                >
+                  Ask Me
+                </button>
+              )}
             </div>
           </div>
         </div>

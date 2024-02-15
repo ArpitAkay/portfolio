@@ -5,7 +5,7 @@ import customercare from "../images/customercare.jpg";
 import riddeapp from "../images/riddeapp.jpg";
 import blogapp from "../images/blogapp.jpg";
 import chatapp from "../images/chatapp.jpg";
-import tmdb from "@/images/tmdb.jpg";
+import tmdb from "../images/tmdb.jpg";
 import springboot from "../svg/springboot.svg";
 import nodejs from "../svg/nodejs.svg";
 import mongodb from "../svg/mongodb.svg";
@@ -98,7 +98,8 @@ const Projects = ({ darkMode }: { darkMode: boolean }) => {
       image: blogapp.src,
       description:
         "Developed a full-stack blog application using React, Redux, and Bootstrap for the frontend, complemented by a Spring Boot backend. The application incorporates key features like user authentication, blog creation, deletion, editing, publishing, unpublishing, and an efficient search function.",
-      github: "https://github.com/ArpitAkay/blogvista-react",
+      feGithub: "https://github.com/ArpitAkay/blogvista-react",
+      beGithub: "https://github.com/ArpitAkay/blogvista-springboot",
       techStack: [
         {
           id: 1,
@@ -133,7 +134,8 @@ const Projects = ({ darkMode }: { darkMode: boolean }) => {
       image: chatapp.src,
       description:
         "Built a full-stack chat application featuring React, Redux, and Material UI for the frontend, and Spring Boot for the backend. The application enables private user interactions using Stomp over WebSockets and SockJS.",
-      github: "https://github.com/ArpitAkay/chatapp-react",
+      feGithub: "https://github.com/ArpitAkay/chatapp-react",
+      beGithub: "https://github.com/ArpitAkay/chatapp-springboot",
       techStack: [
         {
           id: 1,
@@ -173,7 +175,7 @@ const Projects = ({ darkMode }: { darkMode: boolean }) => {
       image: tmdb.src,
       description:
         "Developed frontend for a movie database using NextJS and TailwindCSS. The application fetches data from the TMDB API and displays it in a user-friendly manner. The application features a search function, popular movie and movie details",
-      github: "https://github.com/ArpitAkay/tmdb",
+      feGithub: "https://github.com/ArpitAkay/tmdb",
       live: "https://akay-tmdb.vercel.app/",
       techStack: [
         {
@@ -214,7 +216,7 @@ const Projects = ({ darkMode }: { darkMode: boolean }) => {
             left={"left-0"}
           />
         </div>
-        <div className="mt-12 grid grid-cols-1 gap-4 lg:grid-cols-2 2xl:grid-cols-3">
+        <div className="mt-12 grid grid-cols-1 gap-4 lg:grid-cols-2 2xl:mt-16 2xl:grid-cols-3">
           {projectData.map((item) => {
             return (
               <ProjectItem key={item.id} darkMode={darkMode} data={item} />

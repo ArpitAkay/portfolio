@@ -16,6 +16,7 @@ import Education from "@/components/Education";
 export default function Home() {
   const sectionRef = useRef<HTMLDivElement | null>(null);
   const [darkMode, setDarkMode] = useState<boolean>(true);
+  const [isVisible, setIsVisible] = useState<boolean>(false);
 
   const handleNavbarClick = (val: string) => {
     switch (val) {
@@ -68,10 +69,32 @@ export default function Home() {
         });
         break;
       }
+      case "ContactForm": {
+        sectionRef.current!.scrollTo({
+          top: 999999999,
+          behavior: "smooth",
+        });
+        break;
+      }
       default:
         break;
     }
   };
+
+  const handleScroll = () => {
+    if (sectionRef.current!.scrollTop > 400) {
+      setIsVisible(true);
+    } else {
+      setIsVisible(false);
+    }
+  };
+
+  React.useEffect(() => {
+    sectionRef.current!.addEventListener("scroll", handleScroll);
+    return () => {
+      sectionRef.current!.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
 
   return (
     <div
@@ -137,22 +160,6 @@ export default function Home() {
       >
         <Skills darkMode={darkMode} />
       </motion.section>
-      {/* Resume */}
-      {/* <motion.section
-        initial={{
-          y: 200,
-          opacity: 0,
-        }}
-        whileInView={{
-          y: 0,
-          opacity: 1,
-        }}
-        transition={{ type: "spring", stiffness: 50 }}
-        id="resume"
-        className="mt-4 flex w-full flex-row justify-center"
-      >
-        <Resume darkMode={darkMode} />
-      </motion.section> */}
       {/* Experience */}
       <motion.section
         initial={{
@@ -219,7 +226,7 @@ export default function Home() {
         id="contact"
         className="mt-20 flex w-full flex-row justify-center"
       >
-        <Contact darkMode={darkMode} />
+        <Contact darkMode={darkMode} handleNavbarClick={handleNavbarClick} />
       </motion.section>
       {/* All Rights Reserved */}
       <section
@@ -228,6 +235,33 @@ export default function Home() {
       >
         <Footer darkMode={darkMode} />
       </section>
+      {isVisible && (
+        <motion.section
+          initial={{ y: 20, opacity: 0 }}
+          whileInView={{ y: 0, opacity: 1 }}
+          transition={{ type: "spring", stiffness: 50 }}
+          className="absolute bottom-20 right-2 z-10 sm:right-12 md:right-16 lg:right-20 xl:right-28 2xl:right-44"
+        >
+          <button
+            className={`rounded-full p-2 ${darkMode ? "bg-white" : "bg-black"}`}
+            onClick={() => handleNavbarClick("Home")}
+          >
+            <svg
+              className={`h-8 w-8 ${darkMode ? "text-black" : "text-white"}`}
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              {" "}
+              <line x1="12" y1="19" x2="12" y2="5" />{" "}
+              <polyline points="5 12 12 5 19 12" />
+            </svg>
+          </button>
+        </motion.section>
+      )}
     </div>
   );
 }

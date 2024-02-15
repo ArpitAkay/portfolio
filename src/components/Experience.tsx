@@ -56,7 +56,7 @@ const Experience = ({ darkMode }: { darkMode: boolean }) => {
           </div>
         </div>
         {/* Experience */}
-        <div className="mt-10 w-full">
+        <div className="mt-10 w-full 2xl:mt-16">
           <div className="mt-2 grid w-full grid-cols-1 gap-4 xl:grid-cols-2">
             {experienceInfo.map((item) => {
               return <InfoBox key={item.id} darkMode={darkMode} info={item} />;

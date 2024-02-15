@@ -44,14 +44,16 @@ const ContactItem = (props: ContactItemProps) => {
             className="cursor-pointer"
           >
             <p
-              className={`mt-2 cursor-pointer text-sm sm:text-xs ${colorProp.textColor2} underline`}
+              className={`mt-2 cursor-pointer text-xs sm:text-sm 2xl:text-base ${colorProp.textColor2} underline`}
             >
               {props.info}
             </p>
           </Link>
         )}
         {props.info !== "Resume Link" && (
-          <p className={`mt-2 text-sm sm:text-xs ${colorProp.textColor2}`}>
+          <p
+            className={`mt-2 text-sm sm:text-xs 2xl:text-base ${colorProp.textColor2}`}
+          >
             {props.info}
           </p>
         )}

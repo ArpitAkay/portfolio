@@ -290,7 +290,7 @@ const Skills = ({ darkMode }: { darkMode: boolean }) => {
             />
           </div>
         </div>
-        <div className="mt-8 2xl:mt-14">
+        <div className="mt-8 2xl:mt-16">
           <p
             className={`text-sm lg:text-lg 2xl:text-2xl ${colorProp.textColor}`}
           >

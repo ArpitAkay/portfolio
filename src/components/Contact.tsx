@@ -218,15 +218,15 @@ const Contact = ({
           </motion.div>
         )}
         <div className="mt-8">
-          <div className="flex flex-row justify-center">
-            <div className="me-2 flex flex-row items-center">
+          <div className="flex flex-col justify-center sm:flex-row">
+            <div className="me-1 flex flex-row items-center justify-center sm:me-2 sm:justify-start">
               <p
                 className={`text-xs ${colorProp.textColor2} lg:text-lg xl:text-xl 2xl:text-2xl`}
               >
                 Find me on
               </p>
             </div>
-            <div className="flex flex-row">
+            <div className="flex flex-row justify-center sm:justify-start">
               {socialMedia.map((item) => {
                 return (
                   <div

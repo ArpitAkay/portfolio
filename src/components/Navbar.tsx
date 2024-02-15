@@ -182,6 +182,7 @@ const Navbar = (props: NavbarProps) => {
             isOpen={isOpen}
             setIsOpen={setIsOpen}
             darkMode={props.darkMode}
+            handleNavbarClick={props.handleNavbarClick}
           >
             <div>
               <button

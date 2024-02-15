@@ -29,42 +29,42 @@ export default function Home() {
       }
       case "About": {
         sectionRef.current!.scrollTo({
-          top: document.getElementById("about")!.offsetTop - 140,
+          top: document.getElementById("about")!.offsetTop - 100,
           behavior: "smooth",
         });
         break;
       }
       case "Skills": {
         sectionRef.current!.scrollTo({
-          top: document.getElementById("skills")!.offsetTop - 140,
+          top: document.getElementById("skills")!.offsetTop - 100,
           behavior: "smooth",
         });
         break;
       }
       case "Experience": {
         sectionRef.current!.scrollTo({
-          top: document.getElementById("experience")!.offsetTop - 140,
+          top: document.getElementById("experience")!.offsetTop - 100,
           behavior: "smooth",
         });
         break;
       }
       case "Education": {
         sectionRef.current!.scrollTo({
-          top: document.getElementById("education")!.offsetTop - 140,
+          top: document.getElementById("education")!.offsetTop - 100,
           behavior: "smooth",
         });
         break;
       }
       case "Projects": {
         sectionRef.current!.scrollTo({
-          top: document.getElementById("projects")!.offsetTop - 140,
+          top: document.getElementById("projects")!.offsetTop - 100,
           behavior: "smooth",
         });
         break;
       }
       case "Contact": {
         sectionRef.current!.scrollTo({
-          top: document.getElementById("contact")!.offsetTop - 140,
+          top: document.getElementById("contact")!.offsetTop - 100,
           behavior: "smooth",
         });
         break;
@@ -124,7 +124,7 @@ export default function Home() {
         }}
         transition={{ type: "spring", stiffness: 50 }}
         id="homepage"
-        className="lg:bg-version-control mt-28 flex w-full justify-center bg-center bg-no-repeat sm:mt-44 md:bg-top xl:h-[40%] 2xl:mt-36 2xl:h-[95%] 2xl:bg-cover 2xl:bg-center"
+        className="mt-28 flex w-full justify-center bg-center bg-no-repeat sm:mt-44 md:bg-top lg:bg-version-control xl:h-[40%] 2xl:mt-36 2xl:h-[95%] 2xl:bg-cover 2xl:bg-center"
       >
         <HomePage darkMode={darkMode} />
       </motion.section>
@@ -214,7 +214,7 @@ export default function Home() {
         whileInView={{ y: 0, opacity: 1 }}
         transition={{ type: "spring", stiffness: 50 }}
         id="more-on-github"
-        className="bg-source-code mt-32 flex w-full flex-row justify-center bg-center bg-no-repeat"
+        className="mt-32 flex w-full flex-row justify-center bg-source-code bg-center bg-no-repeat"
       >
         <MoreOnGitHub darkMode={darkMode} />
       </motion.section>
@@ -243,7 +243,7 @@ export default function Home() {
           className="absolute bottom-20 right-2 z-10 sm:right-12 md:right-16 lg:right-20 xl:right-28 2xl:right-44"
         >
           <button
-            className={`rounded-full p-2 ${darkMode ? "bg-white" : "bg-black"}`}
+            className={`rounded-full p-1 sm:p-2 ${darkMode ? "bg-white" : "bg-black"}`}
             onClick={() => handleNavbarClick("Home")}
           >
             <svg
@@ -251,9 +251,9 @@ export default function Home() {
               viewBox="0 0 24 24"
               fill="none"
               stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
             >
               {" "}
               <line x1="12" y1="19" x2="12" y2="5" />{" "}

@@ -1,8 +1,4 @@
-import React, { Children } from "react";
-import contact from "../svg/contact.svg";
-import address from "../svg/address.svg";
-import email from "../svg/email.svg";
-import download_resume from "../svg/download_resume.svg";
+import React from "react";
 import Link from "next/link";
 
 interface ContactItemProps {
@@ -52,7 +48,7 @@ const ContactItem = (props: ContactItemProps) => {
         )}
         {props.info !== "Resume Link" && (
           <p
-            className={`mt-2 text-sm sm:text-xs 2xl:text-base ${colorProp.textColor2}`}
+            className={`mt-2 text-xs sm:text-sm 2xl:text-base ${colorProp.textColor2}`}
           >
             {props.info}
           </p>

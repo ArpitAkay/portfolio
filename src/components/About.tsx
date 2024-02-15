@@ -32,6 +32,29 @@ const About = ({ darkMode }: { darkMode: boolean }) => {
     },
   ];
 
+  const userInfo = [
+    {
+      id: 1,
+      attribute: "Name",
+      value: "Arpit Kumar",
+    },
+    {
+      id: 2,
+      attribute: "Job Role",
+      value: "Backend Developer",
+    },
+    {
+      id: 3,
+      attribute: "Experience",
+      value: "1 Year 10 Months",
+    },
+    {
+      id: 4,
+      attribute: "Address",
+      value: "Bengaluru, India",
+    },
+  ];
+
   const profileInfo = [
     {
       id: 1,
@@ -119,24 +142,18 @@ const About = ({ darkMode }: { darkMode: boolean }) => {
               />
             </div>
             <div className="flex flex-row items-center justify-center p-2 2xl:col-span-2 2xl:justify-start">
-              <table className="table-auto text-sm lg:text-lg 2xl:text-xl">
+              <table className="table-auto border-separate border-spacing-x-2 text-sm lg:text-lg 2xl:border-spacing-x-1 2xl:text-xl">
                 <tbody>
-                  <tr>
-                    <td className="font-bold">Name:</td>
-                    <td className={colorProp.textColor2}>Arpit Kumar</td>
-                  </tr>
-                  <tr>
-                    <td className="font-bold ">Job Role:</td>
-                    <td className={colorProp.textColor2}>Backend Developer</td>
-                  </tr>
-                  <tr>
-                    <td className="font-bold">Experience:</td>
-                    <td className={colorProp.textColor2}>1 Year 10 Months</td>
-                  </tr>
-                  <tr>
-                    <td className="font-bold">Address:</td>
-                    <td className={colorProp.textColor2}>Bengaluru, India</td>
-                  </tr>
+                  {userInfo.map((item) => {
+                    return (
+                      <tr key={item.id}>
+                        <td className="flex justify-start font-bold">
+                          {item.attribute}:
+                        </td>
+                        <td className={colorProp.textColor2}>{item.value}</td>
+                      </tr>
+                    );
+                  })}
                 </tbody>
               </table>
             </div>
@@ -184,12 +201,14 @@ const About = ({ darkMode }: { darkMode: boolean }) => {
             </p>
           </div>
           <div className="mt-4">
-            <table className="w-full table-auto text-sm lg:text-lg 2xl:text-xl">
+            <table className="w-full table-auto border-separate border-spacing-x-2 text-sm lg:text-lg 2xl:border-spacing-x-1 2xl:text-xl">
               <tbody>
                 {profileInfo.map((info) => {
                   return (
                     <tr key={info.id}>
-                      <td className="font-bold">{info.attribute}:</td>
+                      <td className="flex justify-start font-bold">
+                        {info.attribute}:
+                      </td>
                       <td className={colorProp.textColor2}>{info.value}</td>
                     </tr>
                   );

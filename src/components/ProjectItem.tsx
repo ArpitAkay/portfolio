@@ -10,7 +10,7 @@ interface TechStack {
   name: string;
 }
 
-interface projectItemProps {
+interface ProjectItemProps {
   darkMode: boolean;
   data: {
     id: number;
@@ -24,7 +24,7 @@ interface projectItemProps {
   };
 }
 
-const ProjectItem = (props: projectItemProps) => {
+const ProjectItem = (props: ProjectItemProps) => {
   const [isHovered, setIsHovered] = React.useState(false);
   const colorProp = props.darkMode
     ? {

@@ -84,7 +84,7 @@ const ContactForm = ({ darkMode }: { darkMode: boolean }) => {
       action={clientAction}
       ref={formRef}
     >
-      <div className="flex w-full flex-col items-center sm:w-3/5">
+      <div className="flex w-full flex-col items-center sm:w-4/5 lg:w-4/6">
         <div className="mt-2 w-full">
           <label
             htmlFor="name"
@@ -96,7 +96,7 @@ const ContactForm = ({ darkMode }: { darkMode: boolean }) => {
             type="text"
             id="name"
             name="name"
-            className={`w-full rounded-md p-2 focus:${colorProp.outlineColor} border-2 border-white ${issues.name ? "border-red-500" : ""}`}
+            className={`w-full rounded-md p-2 focus:${colorProp.outlineColor} border-2 ${issues.name ? "border-red-500" : "border-white"}`}
             placeholder="Name"
             maxLength={50}
           />
@@ -117,7 +117,7 @@ const ContactForm = ({ darkMode }: { darkMode: boolean }) => {
             type="email"
             id="email"
             name="email"
-            className={`w-full rounded-md p-2 focus:${colorProp.outlineColor} border-2 border-white ${issues.email ? "border-red-500" : ""}`}
+            className={`w-full rounded-md p-2 focus:${colorProp.outlineColor} border-2 ${issues.email ? "border-red-500" : "border-white"}`}
             placeholder="Email"
             maxLength={50}
           />
@@ -137,7 +137,7 @@ const ContactForm = ({ darkMode }: { darkMode: boolean }) => {
           <textarea
             id="message"
             name="message"
-            className={`w-full rounded-md p-2 focus:${colorProp.outlineColor} border-2 border-white ${issues.message ? " border-red-500" : ""}`}
+            className={`w-full rounded-md p-2 focus:${colorProp.outlineColor} border-2 ${issues.message ? " border-red-500" : "border-white"}`}
             placeholder="Enter your message"
             rows={4}
             maxLength={1000}

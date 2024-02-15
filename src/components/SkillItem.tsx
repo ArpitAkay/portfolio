@@ -1,14 +1,14 @@
-import { Tooltip, Zoom } from "@mui/material";
+import { Tooltip } from "@mui/material";
 import Image from "next/image";
 import React from "react";
 
-interface skillSvgItem {
+interface SkillSvgItem {
   id: number;
   name: string;
   svg: string;
 }
 
-interface descriptionItem {
+interface DescriptionItem {
   id: number;
   text: string;
 }
@@ -16,8 +16,8 @@ interface descriptionItem {
 interface SkillItemProps {
   darkMode: boolean;
   title: string;
-  skillSvg: skillSvgItem[];
-  description: descriptionItem[];
+  skillSvg: SkillSvgItem[];
+  description: DescriptionItem[];
 }
 
 const SkillItem = (props: SkillItemProps) => {
@@ -49,14 +49,14 @@ const SkillItem = (props: SkillItemProps) => {
           {props.title}
         </h4>
       </div>
-      <div className="mt-2 grid grid-cols-5 gap-2 sm:grid-cols-7 md:grid-cols-9 lg:grid-cols-9 xl:grid-cols-7 2xl:grid-cols-9">
+      <div className="mt-2 grid grid-cols-4 gap-2 sm:grid-cols-7 md:grid-cols-9 lg:grid-cols-9 xl:grid-cols-7 2xl:grid-cols-9">
         {props.skillSvg.map((item) => {
           return (
             <div
               className="h-12 w-12 transform transition duration-300 ease-in-out hover:scale-125 2xl:h-12 2xl:w-12"
               key={item.id}
             >
-              <Tooltip title={item.name} arrow enterTouchDelay={0}>
+              <Tooltip title={item.name} arrow enterTouchDelay={100}>
                 <Image
                   className={`h-full w-full rounded-md ${colorProp.svgBgColor} p-1`}
                   width={50}

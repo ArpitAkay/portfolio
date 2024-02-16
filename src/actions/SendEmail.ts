@@ -14,12 +14,12 @@ const transporter = nodemailer.createTransport({
 });
 
 const SendEmail = async (formData: FormData) => {
-  const name = formData.get("name")?.toString().trim();
-  const email = formData.get("email")?.toString().trim();
-  const message = formData.get("message")?.toString().trim();
-  const to_name = "Arpit Kumar";
-
   try {
+    const name = formData.get("name")?.toString().trim();
+    const email = formData.get("email")?.toString().trim();
+    const message = formData.get("message")?.toString().trim();
+    console.log(name, email, message);
+    const to_name = "Arpit Kumar";
     const info = await transporter.sendMail({
       from: {
         name: to_name,

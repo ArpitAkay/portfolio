@@ -9,8 +9,7 @@ const nextConfig = {
                 // pathname: '/random/**',
             },
         ],
-    }
-
+    },
 };
 
 export default nextConfig;

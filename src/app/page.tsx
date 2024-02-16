@@ -82,7 +82,7 @@ export default function Home() {
   };
 
   const handleScroll = () => {
-    if (sectionRef.current!.scrollTop > 400) {
+    if (sectionRef.current && sectionRef.current.scrollTop > 400) {
       setIsVisible(true);
     } else {
       setIsVisible(false);
@@ -90,10 +90,13 @@ export default function Home() {
   };
 
   React.useEffect(() => {
-    sectionRef.current!.addEventListener("scroll", handleScroll);
-    return () => {
-      sectionRef.current!.removeEventListener("scroll", handleScroll);
-    };
+    if (sectionRef.current) {
+      const currentSectionRef = sectionRef.current;
+      currentSectionRef.addEventListener("scroll", handleScroll);
+      return () => {
+        currentSectionRef.removeEventListener("scroll", handleScroll);
+      };
+    }
   }, []);
 
   return (

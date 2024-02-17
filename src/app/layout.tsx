@@ -15,18 +15,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Welcome to my portfolio",
     description: "Arpit Kumar's Portfolio",
-    images: [
-      {
-        url: new URL(
-          "/assets/images/og-image.jpg",
-          `${process.env.NEXT_PUBLIC_DOMAIN}`,
-        ).toString(),
-        width: 1200,
-        height: 630,
-        alt: "Arpit Kumar's Portfolio",
-      },
-    ],
-    siteName: "Arpit Kumar",
+    siteName: "https://arpitkumar31.netlify.com",
   },
 };
 

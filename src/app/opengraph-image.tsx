@@ -12,19 +12,41 @@ export const contentType = "image/png";
 export default async function Image() {
   return new ImageResponse(
     (
-      <div
-        style={{
-          fontSize: 48,
-          background: "white",
-          width: "100%",
-          height: "100%",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-        }}
+      //write the code for animate text gradient with all the color
+      <svg
+        width={size.width}
+        height={size.height}
+        viewBox={`0 0 ${size.width} ${size.height}`}
+        xmlns="http://www.w3.org/2000/svg"
       >
-        PortFolio
-      </div>
+        <rect
+          x="0"
+          y="0"
+          width={size.width}
+          height={size.height}
+          fill="url(#gradient)"
+        />
+        <defs>
+          <linearGradient id="gradient" x1="0" x2="0" y1="0" y2="1">
+            <stop offset="0%" stopColor="#f12711" />
+            <stop offset="25%" stopColor="#f5af19" />
+            <stop offset="50%" stopColor="#f12711" />
+            <stop offset="75%" stopColor="#f5af19" />
+            <stop offset="100%" stopColor="#f12711" />
+          </linearGradient>
+        </defs>
+        <text
+          x="50%"
+          y="50%"
+          dominantBaseline="middle"
+          textAnchor="middle"
+          fontSize="90"
+          fontWeight="bold"
+          fill="url(#gradient)"
+        >
+          Portfolio
+        </text>
+      </svg>
     ),
     {
       ...size,

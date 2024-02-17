@@ -14,6 +14,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title: "Welcome to my portfolio",
+    url: `${process.env.NEXT_PUBLIC_DOMAIN}`,
     description: "Arpit Kumar's Portfolio",
     siteName: "https://arpitkumar31.netlify.com",
   },

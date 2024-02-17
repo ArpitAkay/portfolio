@@ -1,21 +1,12 @@
-import { ImageResponse } from "next/og";
+import React from "react";
 
-export const runtime = "edge";
-
-export const alt = "Portfolio";
-export const size = {
-  width: 1200,
-  height: 630,
-};
-export const contentType = "image/png";
-
-export default async function Image() {
-  return new ImageResponse(
-    (
+const page = () => {
+  return (
+    <div className="mt-10">
       <div
         style={{
           width: "1200px",
-          height: "630px",
+          height: "635px",
           backgroundColor: "black",
           display: "flex",
           justifyContent: "center",
@@ -34,9 +25,8 @@ export default async function Image() {
           Portfolio
         </h1>
       </div>
-    ),
-    {
-      ...size,
-    },
+    </div>
   );
-}
+};
+
+export default page;

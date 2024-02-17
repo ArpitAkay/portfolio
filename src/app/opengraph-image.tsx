@@ -16,7 +16,7 @@ export default async function Image() {
         style={{
           width: "1200px",
           height: "630px",
-          backgroundColor: "#333",
+          backgroundColor: "black",
           display: "flex",
           justifyContent: "center",
           alignItems: "center",
@@ -24,14 +24,11 @@ export default async function Image() {
       >
         <h1
           style={{
-            background: "linear-gradient(45deg, #f3ec78, #af4261)",
+            background: "-webkit-linear-gradient(45deg, #ff0000, #0000ff)",
             WebkitBackgroundClip: "text",
             WebkitTextFillColor: "transparent",
             fontSize: "96px",
             fontWeight: "bold",
-            textAlign: "center",
-            margin: 0,
-            padding: "200px 0",
           }}
         >
           Portfolio

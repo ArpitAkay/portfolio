@@ -13,8 +13,8 @@ export const metadata: Metadata = {
     card: "summary_large_image",
   },
   openGraph: {
-    title: "this is open graph title for testing",
-    description: "Some description",
+    title: "Arpit Kumar",
+    description: "Portfolio",
   },
 };
 

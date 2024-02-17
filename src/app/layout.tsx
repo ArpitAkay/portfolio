@@ -13,8 +13,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
   },
   openGraph: {
-    title: "Arpit Kumar",
-    description: "Portfolio",
+    title: "Welcome to my portfolio",
   },
 };
 

@@ -26,7 +26,7 @@ const Navbar = (props: NavbarProps) => {
       };
   return (
     <nav
-      className={`h-full w-full transition-colors ${colorProp.backgroundColor} ${colorProp.textColor}`}
+      className={`h-full w-full ${colorProp.backgroundColor} ${colorProp.textColor}`}
     >
       <div className="flex h-full w-full justify-center">
         <div className="flex w-11/12 items-center justify-between sm:w-9/12">

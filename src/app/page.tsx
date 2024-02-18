@@ -105,7 +105,16 @@ export default function Home() {
       ref={sectionRef}
     >
       {/* Navbar */}
-      <section
+      <motion.section
+        initial={{
+          y: -50,
+          opacity: 0,
+        }}
+        whileInView={{
+          y: 0,
+          opacity: 1,
+        }}
+        transition={{ type: "spring", stiffness: 50 }}
         id="navbar"
         className="fixed left-0 top-0 z-10 h-16 w-full md:h-20 lg:h-24 xl:h-28 2xl:h-32"
       >
@@ -114,7 +123,7 @@ export default function Home() {
           darkMode={darkMode}
           setDarkMode={setDarkMode}
         />
-      </section>
+      </motion.section>
       {/* Home */}
       <motion.section
         initial={{

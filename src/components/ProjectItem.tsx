@@ -63,19 +63,16 @@ const ProjectItem = (props: ProjectItemProps) => {
                 <div className="grid grid-cols-5 gap-2 p-2">
                   {props.data.techStack.map((tech) => {
                     return (
-                      <Tooltip
-                        key={tech.id}
-                        title={tech.name}
-                        arrow
-                        enterTouchDelay={10}
-                      >
-                        <Image
-                          src={tech.svg}
-                          height={50}
-                          width={50}
-                          alt={tech.name}
-                        />
-                      </Tooltip>
+                      <div key={tech.id} className="flex justify-center">
+                        <Tooltip title={tech.name} arrow enterTouchDelay={10}>
+                          <Image
+                            src={tech.svg}
+                            height={50}
+                            width={50}
+                            alt={tech.name}
+                          />
+                        </Tooltip>
+                      </div>
                     );
                   })}
                 </div>

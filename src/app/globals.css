@@ -4,7 +4,7 @@
 
 .transition-colors {
     transition-property: background-color, color, border-color, fill, stroke;
-    transition-duration: 1.2s;
+    transition-duration: 1s;
     transition-timing-function: ease-in-out;
 }
   

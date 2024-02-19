@@ -255,11 +255,11 @@ export default function Home() {
           className="absolute bottom-20 right-2 z-10 sm:right-12 md:right-16 lg:right-20 xl:right-28 2xl:right-44"
         >
           <button
-            className={`rounded-full p-1 sm:p-2 ${darkMode ? "bg-white" : "bg-black"}`}
+            className={`rounded-full p-1 sm:p-2 ${darkMode ? "bg-white" : "bg-black"} transition-colors`}
             onClick={() => handleNavbarClick("Home")}
           >
             <svg
-              className={`h-8 w-8 ${darkMode ? "text-black" : "text-white"}`}
+              className={`h-8 w-8 ${darkMode ? "text-black" : "text-white"} transition-colors`}
               viewBox="0 0 24 24"
               fill="none"
               stroke="currentColor"

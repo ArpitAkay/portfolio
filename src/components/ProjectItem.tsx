@@ -42,7 +42,7 @@ const ProjectItem = (props: ProjectItemProps) => {
 
   return (
     <div
-      className={`hover:scale-104 flex flex-col rounded-md ${colorProp.bgColor} transition delay-75 duration-300 ease-in-out hover:-translate-y-1 hover:${colorProp.hoverBgColor}`}
+      className={`hover:scale-104 flex flex-col rounded-md ${colorProp.bgColor} transition delay-75 duration-300 ease-in-out hover:-translate-y-1 hover:${colorProp.hoverBgColor} transition-colors`}
     >
       <div>
         <div
@@ -82,12 +82,12 @@ const ProjectItem = (props: ProjectItemProps) => {
         </div>
         <div className="my-4 flex flex-col p-2 ">
           <h3
-            className={`text-xl font-medium 2xl:text-2xl ${colorProp.textColor1}`}
+            className={`text-xl font-medium 2xl:text-2xl ${colorProp.textColor1} transition-colors`}
           >
             {props.data.title}
           </h3>
           <p
-            className={`mt-2 text-sm lg:text-lg 2xl:text-xl ${colorProp.textColor2}`}
+            className={`mt-2 text-sm lg:text-lg 2xl:text-xl ${colorProp.textColor2} transition-colors`}
           >
             {props.data.description}
           </p>
@@ -99,7 +99,7 @@ const ProjectItem = (props: ProjectItemProps) => {
             <Link href={props.data.live} target="_blank" className="mx-1">
               <button type="button">
                 <svg
-                  className={`h-8 w-8 ${colorProp.textColor1}`}
+                  className={`h-8 w-8 ${colorProp.textColor1} transition-colors`}
                   width="24"
                   height="24"
                   viewBox="0 0 24 24"
@@ -124,7 +124,7 @@ const ProjectItem = (props: ProjectItemProps) => {
             <Link href={props.data.feGithub} target="_blank">
               <button type="button" className="mx-1">
                 <svg
-                  className={`h-8 w-8 ${colorProp.textColor1}`}
+                  className={`h-8 w-8 ${colorProp.textColor1} transition-colors`}
                   width="24"
                   height="24"
                   viewBox="0 0 24 24"
@@ -146,7 +146,7 @@ const ProjectItem = (props: ProjectItemProps) => {
             <Link href={props.data.beGithub} target="_blank">
               <button type="button" className="mx-1">
                 <svg
-                  className={`h-8 w-8 ${colorProp.textColor1}`}
+                  className={`h-8 w-8 ${colorProp.textColor1} transition-colors`}
                   width="24"
                   height="24"
                   viewBox="0 0 24 24"

@@ -58,20 +58,20 @@ const Contact = ({
         textColor2: "text-gray-400",
         btnBgColor: "bg-yellow-400",
         btnTextColor: "text-black",
-        outlineColor: "outline-yellow-400",
       }
     : {
         textColor1: "text-black",
         textColor2: "text-gray-950",
         btnBgColor: "bg-slate-500",
         btnTextColor: "text-white",
-        outlineColor: "outline-slate-500",
       };
 
   const [openForm, setOpenForm] = React.useState<boolean>(false);
 
   return (
-    <div className={`${colorProp.textColor1} w-full sm:w-4/6`}>
+    <div
+      className={`${colorProp.textColor1} w-full transition-colors sm:w-4/6`}
+    >
       <div className="p-4">
         <div>
           <Heading
@@ -187,7 +187,7 @@ const Contact = ({
               </h4>
               {!openForm && (
                 <button
-                  className={`my-2 rounded-full ${colorProp.btnBgColor} ${colorProp.btnTextColor} px-3 py-2 font-medium`}
+                  className={`my-2 rounded-full ${colorProp.btnBgColor} ${colorProp.btnTextColor} px-3 py-2 font-medium transition-colors`}
                   onClick={() => {
                     setOpenForm(true);
                     setTimeout(() => {
@@ -221,7 +221,7 @@ const Contact = ({
           <div className="flex flex-col justify-center sm:flex-row">
             <div className="me-1 flex flex-row items-center justify-center sm:me-2 sm:justify-start">
               <p
-                className={`text-xs ${colorProp.textColor2} lg:text-lg xl:text-xl 2xl:text-2xl`}
+                className={`text-xs ${colorProp.textColor2} transition-colors lg:text-lg xl:text-xl 2xl:text-2xl`}
               >
                 Find me on
               </p>

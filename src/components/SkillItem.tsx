@@ -24,17 +24,15 @@ const SkillItem = (props: SkillItemProps) => {
   const colorProp = props.darkMode
     ? {
         textColor1: "text-white",
-        textColor2: "text-white",
-        textColor3: "text-gray-400",
+        textColor2: "text-gray-400",
         bgColor: "bg-slate-800",
         hoverBgColor: "bg-slate-600",
         svgBgColor: "bg-slate-400",
         shadow: "shadow-none",
       }
     : {
-        textColor1: "text-black",
-        textColor2: "text-slate-500",
-        textColor3: "text-black",
+        textColor1: "text-slate-500",
+        textColor2: "text-black",
         bgColor: "bg-slate-300",
         hoverBgColor: "bg-slate-950",
         svgBgColor: "bg-white",
@@ -42,10 +40,12 @@ const SkillItem = (props: SkillItemProps) => {
       };
   return (
     <div
-      className={`hover:scale-104 rounded-md ${colorProp.bgColor} p-2 transition delay-75 duration-300 ease-in-out hover:-translate-y-1 hover:${colorProp.hoverBgColor} ${colorProp.shadow}`}
+      className={`hover:scale-104 rounded-md ${colorProp.bgColor} p-2 transition delay-75 duration-300 ease-in-out hover:-translate-y-1 hover:${colorProp.hoverBgColor} ${colorProp.shadow} transition-colors`}
     >
       <div>
-        <h4 className={`text-2xl ${colorProp.textColor2} font-extrabold`}>
+        <h4
+          className={`text-2xl ${colorProp.textColor1} font-extrabold transition-colors`}
+        >
           {props.title}
         </h4>
       </div>
@@ -58,7 +58,7 @@ const SkillItem = (props: SkillItemProps) => {
             >
               <Tooltip title={item.name} arrow enterTouchDelay={10}>
                 <Image
-                  className={`h-full w-full rounded-md ${colorProp.svgBgColor} p-1`}
+                  className={`h-full w-full rounded-md ${colorProp.svgBgColor} p-1 transition-colors`}
                   width={50}
                   height={50}
                   src={item.svg}
@@ -69,7 +69,9 @@ const SkillItem = (props: SkillItemProps) => {
           );
         })}
       </div>
-      <div className={`mt-4 p-2 text-base ${colorProp.textColor3}`}>
+      <div
+        className={`mt-4 p-2 text-base ${colorProp.textColor2} transition-colors`}
+      >
         <ul className="list-inside list-decimal">
           {props.description.map((item) => {
             return (

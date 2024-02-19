@@ -11,13 +11,11 @@ const HomePage = ({ darkMode }: { darkMode: boolean }) => {
     ? {
         textColor1: "text-white",
         textColor2: "text-yellow-400",
-        backgroundColor: "bg-slate-950",
         borderColor: "border-white",
       }
     : {
         textColor1: "text-black",
         textColor2: "text-slate-500",
-        backgroundColor: "bg-slate-200",
         borderColor: "border-black",
       };
 
@@ -47,15 +45,20 @@ const HomePage = ({ darkMode }: { darkMode: boolean }) => {
   return (
     <div className="h-full w-full sm:w-4/6">
       <div className="flex h-full w-full flex-col justify-center px-2">
-        <div className={`flex flex-col ${colorProp.textColor1}`}>
+        <div
+          className={`flex flex-col ${colorProp.textColor1} transition-colors`}
+        >
           <p
-            className={`text-lg ${colorProp.textColor2} font-medium 2xl:text-4xl`}
+            className={`text-lg ${colorProp.textColor2} font-medium transition-colors 2xl:text-4xl`}
           >
             Hello!
             <span className="ms-2 text-2xl 2xl:text-4xl">&#128075;</span>
           </p>
           <p className="mt-2 inline-block text-4xl font-extrabold sm:text-5xl 2xl:text-8xl">
-            I'm <span className={colorProp.textColor2}>{text}</span>
+            I'm{" "}
+            <span className={`${colorProp.textColor2} transition-colors`}>
+              {text}
+            </span>
           </p>
           <p className="mt-2 text-xl font-medium 2xl:text-4xl">
             Software Engineer
@@ -66,7 +69,7 @@ const HomePage = ({ darkMode }: { darkMode: boolean }) => {
           </p>
         </div>
         <div
-          className={`flex w-full flex-row justify-center sm:justify-end ${colorProp.textColor1} mt-10`}
+          className={`mt-10 flex w-full flex-row justify-center sm:justify-end`}
         >
           <Link
             href="https://github.com/ArpitAkay"
@@ -74,7 +77,7 @@ const HomePage = ({ darkMode }: { darkMode: boolean }) => {
             className="mx-2"
           >
             <button
-              className={`rounded-md border-2 ${colorProp.borderColor} p-3 text-sm font-semibold opacity-50 hover:border-solid hover:${colorProp.borderColor} hover:opacity-100 2xl:text-3xl`}
+              className={`rounded-md border-2 ${colorProp.borderColor} p-3 text-sm font-semibold opacity-50 hover:border-solid hover:${colorProp.borderColor} transition-colors hover:opacity-100 2xl:text-3xl ${colorProp.textColor1}`}
             >
               MY WORK
             </button>
@@ -87,7 +90,7 @@ const HomePage = ({ darkMode }: { darkMode: boolean }) => {
             className="mx-2"
           >
             <button
-              className={`hover:${colorProp.borderColor} rounded-md border-2 ${colorProp.borderColor} p-3 text-sm font-semibold opacity-50 hover:border-solid hover:opacity-100 2xl:text-3xl`}
+              className={`rounded-md border-2 ${colorProp.borderColor} p-3 text-sm font-semibold opacity-50 transition-colors hover:border-solid hover:${colorProp.borderColor} hover:opacity-100 2xl:text-3xl ${colorProp.textColor1}`}
             >
               SEE MY RESUME
             </button>

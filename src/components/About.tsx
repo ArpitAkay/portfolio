@@ -127,9 +127,7 @@ const About = ({ darkMode }: { darkMode: boolean }) => {
 
   return (
     <div className="w-full sm:w-4/6">
-      <div
-        className={`grid grid-cols-1 gap-4 ${colorProp.textColor1} xl:grid-cols-2`}
-      >
+      <div className={`grid grid-cols-1 gap-4 xl:grid-cols-2`}>
         <div className="p-4">
           <div className="grid grid-cols-1 gap-2 2xl:grid-cols-3">
             <div className="flex flex-row items-center justify-center">
@@ -138,7 +136,7 @@ const About = ({ darkMode }: { darkMode: boolean }) => {
                 src={avatar.src}
                 width={200}
                 height={200}
-                className={`rounded-full border-2 border-s-white ${colorProp.avatarBgColor}`}
+                className={`rounded-full border-2 border-s-white ${colorProp.avatarBgColor} transition-colors`}
               />
             </div>
             <div className="flex flex-row items-center justify-center p-2 2xl:col-span-2 2xl:justify-start">
@@ -147,10 +145,16 @@ const About = ({ darkMode }: { darkMode: boolean }) => {
                   {userInfo.map((item) => {
                     return (
                       <tr key={item.id}>
-                        <td className="flex justify-start font-bold">
+                        <td
+                          className={`flex justify-start font-bold ${colorProp.textColor1} transition-colors`}
+                        >
                           {item.attribute}:
                         </td>
-                        <td className={colorProp.textColor2}>{item.value}</td>
+                        <td
+                          className={`${colorProp.textColor2} transition-colors`}
+                        >
+                          {item.value}
+                        </td>
                       </tr>
                     );
                   })}
@@ -159,7 +163,7 @@ const About = ({ darkMode }: { darkMode: boolean }) => {
             </div>
           </div>
           {/* skills */}
-          <div className={`mt-2 ${colorProp.textColor2}`}>
+          <div className={`mt-2 ${colorProp.textColor2} transition-colors`}>
             <div>
               <p className="text-xl 2xl:text-2xl">Skills</p>
             </div>
@@ -189,7 +193,7 @@ const About = ({ darkMode }: { darkMode: boolean }) => {
           </div>
           <div className="mt-8 2xl:mt-12">
             <p
-              className={`text-sm lg:text-lg 2xl:text-xl ${colorProp.textColor1}`}
+              className={`text-sm lg:text-lg 2xl:text-xl ${colorProp.textColor1} transition-colors`}
             >
               I’m a backend developer specializing in Java and Spring Boot. I
               excel in building REST and GraphQL APIs, emphasizing efficient
@@ -206,10 +210,16 @@ const About = ({ darkMode }: { darkMode: boolean }) => {
                 {profileInfo.map((info) => {
                   return (
                     <tr key={info.id}>
-                      <td className="flex justify-start font-bold">
+                      <td
+                        className={`flex justify-start font-bold ${colorProp.textColor1} transition-colors`}
+                      >
                         {info.attribute}:
                       </td>
-                      <td className={colorProp.textColor2}>{info.value}</td>
+                      <td
+                        className={`${colorProp.textColor2} transition-colors`}
+                      >
+                        {info.value}
+                      </td>
                     </tr>
                   );
                 })}

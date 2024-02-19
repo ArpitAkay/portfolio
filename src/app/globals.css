@@ -3,8 +3,8 @@
 @tailwind utilities;
 
 .transition-colors {
-    transition-property: background-color, color;
-    transition-duration: 3s;
-    transition-timing-function: ease;
+    transition-property: background-color, color, border-color, fill, stroke;
+    transition-duration: 1.2s;
+    transition-timing-function: ease-in-out;
 }
   

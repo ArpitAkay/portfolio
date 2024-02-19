@@ -194,14 +194,10 @@ const Projects = ({ darkMode }: { darkMode: boolean }) => {
 
   const colorProp = darkMode
     ? {
-        textColor1: "text-white",
-        backgroundColor: "bg-slate-800",
-        hoverBackgroundColor: "bg-slate-600",
+        textColor: "text-white",
       }
     : {
-        textColor1: "text-black",
-        backgroundColor: "bg-slate-300",
-        hoverBackgroundColor: "bg-slate-500",
+        textColor: "text-black",
       };
 
   return (
@@ -209,7 +205,7 @@ const Projects = ({ darkMode }: { darkMode: boolean }) => {
       <div className="w-full p-4">
         <div>
           <Heading
-            textColor={colorProp.textColor1}
+            textColor={colorProp.textColor}
             title={"Projects"}
             subtitle={"Projects"}
             top={"top-0"}

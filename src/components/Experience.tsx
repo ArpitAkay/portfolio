@@ -31,12 +31,10 @@ const Experience = ({ darkMode }: { darkMode: boolean }) => {
   const colorProp = darkMode
     ? {
         textColor1: "text-white",
-        textColor2: "text-gray-400",
         buttonBgColor: "bg-yellow-400",
       }
     : {
         textColor1: "text-black",
-        textColor2: "text-gray-950",
         buttonBgColor: "bg-slate-500",
       };
 
@@ -44,16 +42,14 @@ const Experience = ({ darkMode }: { darkMode: boolean }) => {
     <div className="w-full sm:w-4/6">
       <div className="w-full p-4">
         {/* Experience Heading */}
-        <div className="relative text-white">
-          <div>
-            <Heading
-              textColor={colorProp.textColor1}
-              title={"Experience"}
-              subtitle={"Experience"}
-              top={"top-0"}
-              left={"left-0"}
-            />
-          </div>
+        <div>
+          <Heading
+            textColor={colorProp.textColor1}
+            title={"Experience"}
+            subtitle={"Experience"}
+            top={"top-0"}
+            left={"left-0"}
+          />
         </div>
         {/* Experience */}
         <div className="mt-10 w-full 2xl:mt-16">

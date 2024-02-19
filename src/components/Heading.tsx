@@ -10,7 +10,7 @@ interface HeadingProps {
 
 const Heading = (props: HeadingProps) => {
   return (
-    <div className={`relative ${props.textColor}`}>
+    <div className={`relative ${props.textColor} transition-colors`}>
       <h1 className={`text-3xl font-extrabold md:text-4xl 2xl:text-5xl`}>
         {props.title}
       </h1>

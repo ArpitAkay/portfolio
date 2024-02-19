@@ -88,7 +88,7 @@ const ContactForm = ({ darkMode }: { darkMode: boolean }) => {
         <div className="mt-2 w-full">
           <label
             htmlFor="name"
-            className={`my-1 block ${colorProp.textColor1} text-lg font-medium`}
+            className={`my-1 block ${colorProp.textColor1} text-lg font-medium transition-colors`}
           >
             Name
           </label>
@@ -109,7 +109,7 @@ const ContactForm = ({ darkMode }: { darkMode: boolean }) => {
         <div className="w-full">
           <label
             htmlFor="email"
-            className={`my-1  block ${colorProp.textColor1} text-lg font-medium`}
+            className={`my-1  block ${colorProp.textColor1} text-lg font-medium transition-colors`}
           >
             Email
           </label>
@@ -130,7 +130,7 @@ const ContactForm = ({ darkMode }: { darkMode: boolean }) => {
         <div className="w-full">
           <label
             htmlFor="message"
-            className={`my-1 block ${colorProp.textColor1} text-lg font-medium`}
+            className={`my-1 block ${colorProp.textColor1} text-lg font-medium transition-colors`}
           >
             Message
           </label>
@@ -178,7 +178,7 @@ function SubmitButton({
   return (
     <input
       type="submit"
-      className={`${colorProp.btnTextColor} ${colorProp.btnBgColor} mt-2 rounded-md px-2 py-2 font-medium`}
+      className={`${colorProp.btnTextColor} ${colorProp.btnBgColor} mt-2 rounded-md px-2 py-2 font-medium transition-colors`}
       value={pending ? "Sending..." : message}
       disabled={pending}
     />

@@ -269,30 +269,26 @@ const Skills = ({ darkMode }: { darkMode: boolean }) => {
   const colorProp = darkMode
     ? {
         textColor: "text-white",
-        backgroundColor: "bg-slate-950",
       }
     : {
         textColor: "text-black",
-        backgroundColor: "bg-slate-200",
       };
 
   return (
     <div className="w-full sm:w-4/6">
       <div className="p-4">
-        <div className={`relative ${colorProp.textColor}`}>
-          <div>
-            <Heading
-              textColor={colorProp.textColor}
-              title={"Skills"}
-              subtitle={"Skills"}
-              top={"top-0"}
-              left={"left-0"}
-            />
-          </div>
+        <div>
+          <Heading
+            textColor={colorProp.textColor}
+            title={"Skills"}
+            subtitle={"Skills"}
+            top={"top-0"}
+            left={"left-0"}
+          />
         </div>
         <div className="mt-8 2xl:mt-16">
           <p
-            className={`text-sm lg:text-lg 2xl:text-2xl ${colorProp.textColor}`}
+            className={`text-sm lg:text-lg 2xl:text-2xl ${colorProp.textColor} transition-colors`}
           >
             Passionate developer hungry for tech exploration.
           </p>

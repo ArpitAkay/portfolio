@@ -23,21 +23,19 @@ const InfoBox = (props: InfoBoxProps) => {
   const colorProp = props.darkMode
     ? {
         textColor1: "text-yellow-400",
-        textColor2: "text-white",
-        textColor3: "text-gray-400",
-        backgroundColor: "bg-slate-800",
-        hoverBackgroundColor: "bg-slate-600",
+        textColor2: "text-gray-400",
+        bgColor: "bg-slate-800",
+        hoverBgColor: "bg-slate-600",
       }
     : {
         textColor1: "text-slate-500",
-        textColor2: "text-black",
-        textColor3: "text-gray-950",
-        backgroundColor: "bg-slate-300",
-        hoverBackgroundColor: "bg-slate-500",
+        textColor2: "text-gray-950",
+        bgColor: "bg-slate-300",
+        hoverBgColor: "bg-slate-500",
       };
   return (
     <div
-      className={`hover:scale-104 rounded-md ${colorProp.backgroundColor} p-3 transition delay-75 duration-300 ease-in-out hover:-translate-y-1 hover:${colorProp.hoverBackgroundColor}`}
+      className={`hover:scale-104 rounded-md ${colorProp.bgColor} p-3 transition delay-75 duration-300 ease-in-out hover:-translate-y-1 hover:${colorProp.hoverBgColor} transition-colors`}
     >
       <div className="flex flex-row">
         {props.info.logo && (
@@ -51,13 +49,15 @@ const InfoBox = (props: InfoBoxProps) => {
             />
           </div>
         )}
-        <div className={`flex flex-col ${props.info.logo ? "ms-4" : ""}`}>
-          <div className={`my-1 ${colorProp.textColor1}`}>
+        <div
+          className={`flex flex-col ${props.info.logo ? "ms-4" : ""} ${colorProp.textColor1} transition-colors`}
+        >
+          <div className="my-1">
             <h3 className="text-lg font-extrabold sm:text-2xl 2xl:text-3xl">
               {props.info.time}
             </h3>
           </div>
-          <div className={`sm:my-1 ${colorProp.textColor1}`}>
+          <div className="sm:my-1">
             <h4 className="text-lg sm:text-2xl 2xl:text-3xl">
               {props.info.title}
             </h4>
@@ -66,18 +66,18 @@ const InfoBox = (props: InfoBoxProps) => {
       </div>
       <div>
         <h5
-          className={`mt-2 text-sm lg:text-lg 2xl:text-2xl ${colorProp.textColor3}`}
+          className={`mt-2 text-sm lg:text-lg 2xl:text-2xl ${colorProp.textColor2} transition-colors`}
         >
           {props.info.subTitle}
         </h5>
       </div>
       <div
-        className={`mt-2 ${colorProp.textColor3} text-sm lg:text-lg 2xl:text-2xl`}
+        className={`mt-2 ${colorProp.textColor2} text-sm transition-colors lg:text-lg 2xl:text-2xl`}
       >
         <p>{props.info.description}</p>
       </div>
       {props.info.points.length !== 0 && (
-        <div className={`mt-4 ps-4 ${colorProp.textColor3}`}>
+        <div className={`mt-4 ps-4 ${colorProp.textColor2} transition-colors`}>
           <ol className="list-inside list-disc">
             {props.info.points.map((point) => {
               return (

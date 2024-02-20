@@ -14,7 +14,7 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Setting environment variables
-        run: echo "NEXT_PUBLIC_DOMAIN=${{ secrets.PUBLIC_DOMAIN }}" >> $GITHUB_ENV
+        run: echo "NEXT_PUBLIC_DOMAIN=http://arpitkumar-portfolio.s3-website.ap-south-1.amazonaws.com" >> $GITHUB_ENV
 
       - name: Install dependencies
         run: npm install

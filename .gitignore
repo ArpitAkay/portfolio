@@ -36,4 +36,4 @@ yarn-error.log*
 next-env.d.ts
 
 # Github Actions
-# .github
+.github

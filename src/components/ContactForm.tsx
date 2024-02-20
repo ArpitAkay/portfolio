@@ -2,7 +2,7 @@
 
 import React from "react";
 import { z } from "zod";
-import emailjs from "@emailjs/browser";
+import emailjs, { EmailJSResponseStatus } from "@emailjs/browser";
 
 const userInfoSchema = z.object({
   name: z
@@ -75,21 +75,24 @@ const ContactForm = ({ darkMode }: { darkMode: boolean }) => {
       return;
     }
 
-    emailjs
-      .send("service_y95eux8", "template_9u5nhfc", userInfo, {
+    const response: EmailJSResponseStatus = await emailjs.send(
+      "service_y95eux8",
+      "template_9u5nhfc",
+      userInfo,
+      {
         publicKey: "MRYUVni8fXznMFaMV",
-      })
-      .then(
-        () => {
-          formRef.current?.reset();
-          setBtnText("Successfully Sent");
-        },
-        (error) => {
-          setBtnText("Failed to send");
-          console.log("FAILED...", error.text);
-        },
-      );
-    setTimeout(() => setBtnText("Send Message"), 5000);
+      },
+    );
+    console.log(response.status, response.text);
+
+    if (response.status === 200 && response.text === "OK") {
+      formRef.current!.reset();
+      setBtnText("Successfully Sent");
+      setTimeout(() => setBtnText("Send Message"), 2000);
+    } else {
+      setBtnText("Try Again");
+      console.log("FAILED...", response.text);
+    }
   };
 
   return (

@@ -1,9 +1,8 @@
 "use client";
 
-import SendEmail from "@/actions/SendEmail";
 import React from "react";
-import { useFormStatus } from "react-dom";
 import { z } from "zod";
+import emailjs from "@emailjs/browser";
 
 const userInfoSchema = z.object({
   name: z
@@ -27,7 +26,7 @@ interface Issue {
 
 const ContactForm = ({ darkMode }: { darkMode: boolean }) => {
   const formRef = React.useRef<HTMLFormElement>(null);
-  const [message, setMessage] = React.useState("Send Message");
+  const [btnText, setBtnText] = React.useState("Send Message");
   const [issues, setIssues] = React.useState<Issue>({
     name: "",
     email: "",
@@ -37,17 +36,26 @@ const ContactForm = ({ darkMode }: { darkMode: boolean }) => {
     ? {
         textColor1: "text-white",
         outlineColor: "outline-yellow-400",
+        btnBgColor: "bg-yellow-400",
+        btnTextColor: "text-black",
       }
     : {
         textColor1: "text-black",
         outlineColor: "outline-slate-500",
+
+        btnBgColor: "bg-slate-500",
+        btnTextColor: "text-white",
       };
 
-  const clientAction = async (formData: FormData) => {
+  const clientAction = async (e: React.FormEvent<HTMLFormElement>) => {
+    setBtnText("Sending...");
+    e.preventDefault();
+
+    const formData = new FormData(formRef.current!);
     const userInfo = {
-      name: formData.get("name"),
-      email: formData.get("email"),
-      message: formData.get("message"),
+      name: formData.get("name")?.toString().trim(),
+      email: formData.get("email")?.toString().trim(),
+      message: formData.get("message")?.toString().trim(),
     };
 
     const zodResult = userInfoSchema.safeParse(userInfo);
@@ -67,21 +75,28 @@ const ContactForm = ({ darkMode }: { darkMode: boolean }) => {
       return;
     }
 
-    const result = await SendEmail(formData);
-    setMessage(result.message);
-    if (result.status === "success") {
-      formRef.current?.reset();
-    }
-    setTimeout(() => {
-      setMessage("Send Message");
-    }, 2000);
+    emailjs
+      .send("service_y95eux8", "template_9u5nhfc", userInfo, {
+        publicKey: "MRYUVni8fXznMFaMV",
+      })
+      .then(
+        () => {
+          formRef.current?.reset();
+          setBtnText("Successfully Sent");
+        },
+        (error) => {
+          setBtnText("Failed to send");
+          console.log("FAILED...", error.text);
+        },
+      );
+    setTimeout(() => setBtnText("Send Message"), 5000);
   };
 
   return (
     <form
       id="contact-form"
       className="flex justify-center text-black"
-      action={clientAction}
+      onSubmit={clientAction}
       ref={formRef}
     >
       <div className="flex w-full flex-col items-center sm:w-4/5 lg:w-4/6">
@@ -149,7 +164,12 @@ const ContactForm = ({ darkMode }: { darkMode: boolean }) => {
           </p>
         </div>
         <div>
-          <SubmitButton darkMode={darkMode} message={message} />
+          <input
+            type="submit"
+            className={`${colorProp.btnTextColor} ${colorProp.btnBgColor} mt-2 rounded-md px-2 py-2 font-medium transition-colors`}
+            value={btnText}
+            disabled={btnText === "Sending..."}
+          />
         </div>
       </div>
     </form>
@@ -158,13 +178,11 @@ const ContactForm = ({ darkMode }: { darkMode: boolean }) => {
 
 function SubmitButton({
   darkMode,
-  message,
+  btnText,
 }: {
   darkMode: boolean;
-  message: string;
+  btnText: string;
 }) {
-  const { pending } = useFormStatus();
-
   const colorProp = darkMode
     ? {
         btnBgColor: "bg-yellow-400",
@@ -179,8 +197,8 @@ function SubmitButton({
     <input
       type="submit"
       className={`${colorProp.btnTextColor} ${colorProp.btnBgColor} mt-2 rounded-md px-2 py-2 font-medium transition-colors`}
-      value={pending ? "Sending..." : message}
-      disabled={pending}
+      value={btnText}
+      disabled={btnText === "Sending..."}
     />
   );
 }

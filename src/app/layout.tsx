@@ -5,7 +5,7 @@ import "./globals.css";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  metadataBase: new URL(`${process.env.NEXT_PUBLIC_DOMAIN}`),
+  // metadataBase: new URL(`${process.env.NEXT_PUBLIC_DOMAIN}`),
   title: "Arpit Kumar",
   description:
     "I’m a backend developer specializing in Java and Spring Boot. I excel in building REST and GraphQL APIs, emphasizing efficient database design and secure implementations for seamless functionality and optimal performance",

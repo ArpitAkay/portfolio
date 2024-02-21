@@ -60,7 +60,6 @@ const ContactForm = ({ darkMode }: { darkMode: boolean }) => {
 
     const zodResult = userInfoSchema.safeParse(userInfo);
     if (!zodResult.success) {
-      console.log(zodResult.error.issues);
       zodResult.error.issues.forEach((issue) => {
         const path = issue.path.join();
         setIssues((prev) => ({ ...prev, [path]: issue.message }));
@@ -72,6 +71,7 @@ const ContactForm = ({ darkMode }: { darkMode: boolean }) => {
           message: "",
         });
       }, 5000);
+      setBtnText("Send Message");
       return;
     }
 
@@ -83,7 +83,6 @@ const ContactForm = ({ darkMode }: { darkMode: boolean }) => {
         publicKey: "MRYUVni8fXznMFaMV",
       },
     );
-    console.log(response.status, response.text);
 
     if (response.status === 200 && response.text === "OK") {
       formRef.current!.reset();
@@ -91,7 +90,6 @@ const ContactForm = ({ darkMode }: { darkMode: boolean }) => {
       setTimeout(() => setBtnText("Send Message"), 2000);
     } else {
       setBtnText("Try Again");
-      console.log("FAILED...", response.text);
     }
   };
 

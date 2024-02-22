@@ -18,7 +18,6 @@ const SendEmail = async (formData: FormData) => {
     const name = formData.get("name")?.toString().trim();
     const email = formData.get("email")?.toString().trim();
     const message = formData.get("message")?.toString().trim();
-    console.log(name, email, message);
     const to_name = "Arpit Kumar";
     const info = await transporter.sendMail({
       from: {
@@ -36,7 +35,6 @@ const SendEmail = async (formData: FormData) => {
       message: "Successfully Sent",
     };
   } catch (error) {
-    console.log(error);
     return {
       status: "failed",
       message: "Failed to send",

@@ -52,7 +52,6 @@ const ContactForm = ({ darkMode }: { darkMode: boolean }) => {
 
     const zodResult = userInfoSchema.safeParse(userInfo);
     if (!zodResult.success) {
-      console.log(zodResult.error.issues);
       zodResult.error.issues.forEach((issue) => {
         const path = issue.path.join();
         setIssues((prev) => ({ ...prev, [path]: issue.message }));

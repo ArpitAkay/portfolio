@@ -32,6 +32,20 @@ const About = ({ darkMode }: { darkMode: boolean }) => {
     },
   ];
 
+  function getDate(): string {
+    const currentDate = new Date();
+    const compareDate = new Date("2022-06-27");
+    let diffMonth = currentDate.getMonth() + 1 - compareDate.getMonth() + 1;
+    let diffYear = currentDate.getFullYear() - compareDate.getFullYear();
+
+    if (diffMonth < 0) {
+      diffMonth += 12;
+      diffYear--;
+    }
+
+    return `${diffYear} ${diffYear > 1 ? "Years" : "Year"} ${diffMonth} ${diffMonth > 1 ? "Months" : "Month"}`;
+  }
+
   const userInfo = [
     {
       id: 1,
@@ -46,7 +60,7 @@ const About = ({ darkMode }: { darkMode: boolean }) => {
     {
       id: 3,
       attribute: "Experience",
-      value: "1 Year 10 Months",
+      value: getDate(),
     },
     {
       id: 4,

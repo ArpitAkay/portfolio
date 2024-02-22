@@ -18,7 +18,7 @@ export const metadata: Metadata = {
     url: `${process.env.NEXT_PUBLIC_DOMAIN}`,
     description:
       "I’m a backend developer specializing in Java and Spring Boot. I excel in building REST and GraphQL APIs, emphasizing efficient database design and secure implementations for seamless functionality and optimal performance",
-    siteName: "https://arpitkumar31.netlify.com",
+    siteName: "Arpit Kumar",
   },
 };
 
@@ -29,6 +29,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        <link rel="icon" href="/favicon.png" />
+      </head>
       <body className={`${inter.className} select-none`}>{children}</body>
     </html>
   );

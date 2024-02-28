@@ -6,7 +6,12 @@ import PercentageBar from "./PercentageBar";
 import Link from "next/link";
 import Heading from "./Heading";
 import Image from "next/image";
+import github_bg_slate from "../svg/github-bg-slate.svg";
+import github_bg_white from "../svg/github-bg-white.svg";
 import linkedin from "../svg/linkedin.svg";
+import twitter from "../svg/twitterx.svg";
+import instagram from "../svg/instagram.svg";
+import facebook from "../svg/facebook.svg";
 
 const About = ({ darkMode }: { darkMode: boolean }) => {
   const skills = [
@@ -107,7 +112,39 @@ const About = ({ darkMode }: { darkMode: boolean }) => {
     },
   ];
 
-  const [projectCount, setProjectCount] = React.useState(1);
+  const socialMedia = [
+    {
+      id: 1,
+      name: "github",
+      link: "https://github.com/ArpitAkay",
+      svg: darkMode ? github_bg_slate.src : github_bg_white.src,
+    },
+    {
+      id: 2,
+      name: "linkedin",
+      link: "https://www.linkedin.com/in/arpit-kumar-5a26201b4/",
+      svg: linkedin.src,
+    },
+    {
+      id: 3,
+      name: "twitter",
+      link: "https://twitter.com/arpit_noob31",
+      svg: twitter.src,
+    },
+    {
+      id: 4,
+      name: "instagram",
+      link: "https://www.instagram.com/arpit_noob31/",
+      svg: instagram.src,
+    },
+    {
+      id: 5,
+      name: "facebook",
+      link: "https://www.facebook.com/arpitkumar4000/",
+      svg: facebook.src,
+    },
+  ];
+
   const colorProp = darkMode
     ? {
         textColor1: "text-white",
@@ -119,25 +156,6 @@ const About = ({ darkMode }: { darkMode: boolean }) => {
         textColor2: "text-gray-950",
         avatarBgColor: "bg-slate-500",
       };
-
-  React.useEffect(() => {
-    let timeout: NodeJS.Timeout;
-
-    const increaseProjectCount = () => {
-      timeout = setTimeout(() => {
-        if (projectCount < 10) {
-          setProjectCount((prevCount) => prevCount + 1);
-          increaseProjectCount(); // Call the function recursively
-        }
-      }, 500);
-    };
-
-    increaseProjectCount();
-
-    return () => {
-      clearTimeout(timeout);
-    };
-  }, [projectCount]);
 
   return (
     <div className="w-full sm:w-4/6">
@@ -241,12 +259,25 @@ const About = ({ darkMode }: { darkMode: boolean }) => {
             </table>
           </div>
           <div className="mt-4">
-            <Link
-              href={"https://www.linkedin.com/in/arpit-kumar-5a26201b4/"}
-              target="_blank"
-            >
-              <Image src={linkedin.src} alt="linkedin" width={50} height={50} />
-            </Link>
+            <div className="flex flex-row">
+              {socialMedia.map((item) => {
+                return (
+                  <div
+                    className="mx-1 transform transition duration-200 ease-in-out hover:scale-125"
+                    key={item.id}
+                  >
+                    <Link href={item.link} target="_blank">
+                      <Image
+                        width={40}
+                        height={40}
+                        src={item.svg}
+                        alt={item.name}
+                      />
+                    </Link>
+                  </div>
+                );
+              })}
+            </div>
           </div>
         </div>
       </div>

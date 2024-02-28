@@ -19,7 +19,7 @@ export const metadata: Metadata = {
     url: `${process.env.NEXT_PUBLIC_DOMAIN}`,
     description:
       "I’m a backend developer specializing in Java and Spring Boot. I excel in building REST and GraphQL APIs, emphasizing efficient database design and secure implementations for seamless functionality and optimal performance",
-    siteName: "Arpit Kumar",
+    siteName: "Arpit Kumar - Software Engineer",
   },
 };
 
